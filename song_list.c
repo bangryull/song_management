@@ -91,7 +91,7 @@ void add_song() {
 	char lyricists_buffer[STRING_SIZE] = "";	//작사가
 	char genre_buffer[STRING_SIZE] = "";    //장르
 	char playtime[STRING_SIZE]; //재생시간
-	char album[STRING_SIZE];    //앨범명
+	char album_buffer[STRING_SIZE];    //앨범명
 	char release[STRING_SIZE];  //앨범출시날짜
 	FILE* fp = fopen("song_list.txt", "a");	//추가모드로 파일 열기
 
@@ -109,7 +109,7 @@ void add_song() {
 			printf("제목 입력이 잘못되었습니다.정확히 입력해주세요.(예시:좋니)\n");
 			continue;
 		}
-		else {
+		else {		//맞는 입력일 경우
 			fprintf(fp, "%s | ", title);
 		}
 		break;
@@ -127,7 +127,7 @@ void add_song() {
 			printf("가수 입력이 잘못되었습니다.정확히 입력해주세요.(예시:윤종신)\n");
 			continue;
 		}
-		else {
+		else {		//맞는 입력일 경우
 			char* singer_buffer = strtok(singers, ",");	//","를 기준으로 자르기
 			char* singer = trim(singer_buffer);	//앞뒤 공백 제거
 												//중복 확인
@@ -159,7 +159,7 @@ void add_song() {
 			printf("작곡가 입력이 잘못되었습니다.정확히 입력해주세요.(예시:윤종신)\n");
 			continue;
 		}
-		else {
+		else {		//맞는 입력일 경우
 			char* composer_buffer = strtok(composers, ",");	//","를 기준으로 자르기
 			char* composer = trim(composer_buffer);	//앞뒤 공백 제거
 												//중복 확인
@@ -190,7 +190,7 @@ void add_song() {
 			printf("작사가 입력이 잘못되었습니다.정확히 입력해주세요.(예시:윤종신)\n");
 			continue;
 		}
-		else {
+		else {		//맞는 입력일 경우
 			char* lyricist_buffer = strtok(lyricists, ",");	//","를 기준으로 자르기
 			char* lyricist = trim(lyricist_buffer);	//앞뒤 공백 제거
 			//중복 확인
@@ -209,7 +209,77 @@ void add_song() {
 		break;	//작사가 끝
 	}
 
+	printf("장르를 입력하세요.\n");	//장르
+	while (1) {
+		printf("\n");
+		printf("장르 :");
+		gets(genre_buffer);
 
+		char* genre = trim(genre_buffer);	//앞뒤 공백 제거
+
+		if (strcmp(genre, "클래식") * strcmp(genre, "재즈") * strcmp(genre, "팝") * strcmp(genre, "발라드") * strcmp(genre, "힙합") * strcmp(genre, "트로트") * strcmp(genre, "디스코") * strcmp(genre, "댄스") == 0) {	//맞는 입력일 경우
+			fprintf(fp, "%s | ", genre);
+		}
+		else {		//틀린 입력일 경우
+			printf("장르 입력이 잘못되었습니다.정확히 입력해주세요.(예시:재즈)\n");
+			continue;
+		}
+		break;
+	}		//장르 끝
+
+	/*
+	printf("시간를 입력하세요.\n");	//시간
+	while (1) {
+		char minute_str[STRING_SIZE] = "";
+		char second_str[STRING_SIZE] = "";
+		int error = 0;
+		printf("\n");
+		printf("시간 :");
+		gets(playtime);
+
+		char* playtime_ = trim(playtime);	//앞뒤 공백 제거
+
+		if (strlen(playtime_) == 0) { error = 1; }	//틀린 입력일 경우	
+		else if (strchr(playtime_, "분") == NULL && strchr(playtime_, "초") == NULL) { error = 1; }
+		else if (strchr(playtime_, "분") == NULL && strchr(playtime_, "초") != NULL) {
+			*second_str = strtok(playtime_, "초");
+			if (strtok(NULL, "초") != NULL) { error = 1; }
+		}
+		else if (strchr(playtime_, "분") != NULL && strchr(playtime_, "초") == NULL) {
+			*minute_str = strtok(playtime_, "분");
+			if (strtok(NULL, "분") != NULL) { error = 1; }
+		}
+		else {
+			*minute_str = strtok(playtime_, "분");
+			*second_str = strtok(NULL, "초");
+			if (strtok(NULL, "초") != NULL) { error = 1; }
+		}
+		printf("%s분%s초\n", second_str, minute_str);
+		if (error == 1) {
+			printf("시간 입력이 잘못되었습니다.정확히 입력해주세요.(예시:윤종신)\n");
+			continue;
+		}
+		break;
+	}		//시간 끝
+	*/  //수정중
+
+	printf("앨범명을 입력하세요.\n");	//앨범명
+	while (1) {
+		printf("\n");
+		printf("앨범명 :");
+		gets(album_buffer);	//앨범명 입력받기
+
+		char* album = trim(album_buffer);	//앞뒤 공백 제거
+
+		if (0) {	//틀린 입력일 경우
+			printf("앨범명 입력이 잘못되었습니다.정확히 입력해주세요.(예시:밤양갱)\n");
+			continue;
+		}
+		else {		//맞는 입력일 경우
+			fprintf(fp, "%s | ", album);
+		}
+		break;
+	}	//앨범명 끝
 
 
 
