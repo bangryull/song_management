@@ -1,0 +1,217 @@
+#include "header.h"
+
+char* trim_left(char* str);
+char* trim_right(char* str);
+char* trim(char* str);
+
+char* trim_left(char* str) {
+	while (*str) {
+		if (isspace(*str)) {
+			str++;
+		}
+		else {
+			break;
+		}
+	}
+	return str;
+}
+
+char* trim_right(char* str) {
+	int len = (int)strlen(str) - 1;
+
+	while (len >= 0) {
+		if (isspace(*(str + len))) {
+			len--;
+		}
+		else {
+			break;
+		}
+	}
+	*(str + ++len) = '\0';
+	return str;
+}
+
+char* trim(char* str) {
+	return trim_left(trim_right(str));
+}
+
+void song_list_menu() //노래 리스트 주 메뉴
+{
+	int mode, err = 0;
+	while (1)
+	{
+		if (err == 0) //입력 조건에 맞았을 때
+		{
+			printf("\n원하는 메뉴를 선택하세요.\n\n");
+		}
+		else //입력 조건에 맞지 않았을 때
+		{
+			printf("\n해당 메뉴는 존재하지 않습니다.\n");
+			printf("밑의 메뉴 중 선택하세요(예시:1)\n\n");
+			err = 0;
+		}
+		printf("1. 노래 리스트 출력\n");
+		printf("2. 노래 추가\n");
+		printf("3. 노래 삭제\n");
+		printf("0. 뒤로 가기\n");
+		printf("\n메뉴 선택 : ");
+		scanf("%d", &mode);
+
+		while (getchar() != '\n'); //입력 버터 비우기
+
+		switch (mode) {
+		case 1: //노래 리스트 출력
+			song_list_menu();
+			break;
+
+		case 2: //노래 추가
+			add_song();
+			song_list_menu();
+			break;
+
+		case 3: //노래 삭제
+
+			break;
+
+		case 0: //뒤로 가기
+
+			break;
+		default: //error
+			while (getchar() != '\n'); //입력 버터 비우기
+			err = 1;
+			break;
+		}
+	}
+}
+
+void add_song() {
+	char title_buffer[STRING_SIZE] = "";	//제목
+	char singers_buffer[STRING_SIZE] = "";	//가수
+	char composers_buffer[STRING_SIZE] = "";	//작곡가
+	char lyricists_buffer[STRING_SIZE] = "";	//작사가
+	char genre_buffer[STRING_SIZE] = "";    //장르
+	char playtime[STRING_SIZE]; //재생시간
+	char album[STRING_SIZE];    //앨범명
+	char release[STRING_SIZE];  //앨범출시날짜
+	FILE* fp = fopen("song_list.txt", "a");	//추가모드로 파일 열기
+
+
+	printf("제목을 입력하세요.\n");	//제목
+	while (1) {
+		printf("\n");
+		printf("제목 :");
+		gets(title_buffer);	//제목 입력받기
+
+		char* title = trim(title_buffer);	//앞뒤 공백 제거
+
+		//printf("%s\n", title);			//제대로 입력되었는지 확인(검사)
+		if (strlen(title) == 0) {	//틀린 입력일 경우
+			printf("제목 입력이 잘못되었습니다.정확히 입력해주세요.(예시:좋니)\n");
+			continue;
+		}
+		else {
+			fprintf(fp, "%s | ", title);
+		}
+		break;
+	}	//제목 끝
+	
+	printf("가수를 입력하세요.\n");	//가수
+	while (1) {
+		printf("\n");
+		printf("가수 :");
+		gets(singers_buffer);	//가수 입력받기
+
+		char* singers = trim(singers_buffer);	//앞뒤 공백 제거
+
+		if (strlen(singers)==0) {	//틀린 입력일 경우
+			printf("가수 입력이 잘못되었습니다.정확히 입력해주세요.(예시:윤종신)\n");
+			continue;
+		}
+		else {
+			char* singer_buffer = strtok(singers, ",");	//","를 기준으로 자르기
+			char* singer = trim(singer_buffer);	//앞뒤 공백 제거
+												//중복 확인
+
+			fprintf(fp, "%s ", singer);			//첫 가수 파일에 저장
+			singer = strtok(NULL, ",");
+
+			while (singer != NULL) {				//가수가 더 있을 경우 계속 추가 저장
+				char* next_singer = trim(singer);	//앞뒤 공백 제거
+													//중복 확인
+				fprintf(fp, ", %s ", next_singer);
+				singer = strtok(NULL, ",");
+			}
+			fputs("| ", fp);
+		}
+		break;
+	}		//가수 끝
+
+
+	printf("작곡가를 입력하세요.\n");	//작곡가
+	while (1) {
+		printf("\n");
+		printf("작곡가 :");
+		gets(composers_buffer);	//작곡가 입력받기
+
+		char* composers = trim(composers_buffer);	//앞뒤 공백 제거
+
+		if (strlen(composers)==0) {	//틀린 입력일 경우
+			printf("작곡가 입력이 잘못되었습니다.정확히 입력해주세요.(예시:윤종신)\n");
+			continue;
+		}
+		else {
+			char* composer_buffer = strtok(composers, ",");	//","를 기준으로 자르기
+			char* composer = trim(composer_buffer);	//앞뒤 공백 제거
+												//중복 확인
+
+			fprintf(fp, "%s ", composer);			//첫 작곡가 파일에 저장
+			composer = strtok(NULL, ",");
+
+			while (composer != NULL) {				//작곡가가 더 있을 경우 계속 추가 저장
+				char* next_composer = trim(composer);	//앞뒤 공백 제거
+													//중복 확인
+				fprintf(fp, ", %s ", next_composer);
+				composer = strtok(NULL, ",");
+			}
+			fputs("| ", fp);		
+		}
+		break;	//작곡가 끝
+	}
+
+	printf("작사가를 입력하세요.\n");	//작사가
+	while (1) {
+		printf("\n");
+		printf("작사가 :");
+		gets(lyricists_buffer);	//작사가 입력받기
+
+		char* lyricists = trim(lyricists_buffer);	//앞뒤 공백 제거
+
+		if (strlen(lyricists) == 0) {	//틀린 입력일 경우
+			printf("작사가 입력이 잘못되었습니다.정확히 입력해주세요.(예시:윤종신)\n");
+			continue;
+		}
+		else {
+			char* lyricist_buffer = strtok(lyricists, ",");	//","를 기준으로 자르기
+			char* lyricist = trim(lyricist_buffer);	//앞뒤 공백 제거
+			//중복 확인
+
+			fprintf(fp, "%s ", lyricist);			//첫 작사가 파일에 저장
+			lyricist = strtok(NULL, ",");
+
+			while (lyricist != NULL) {				//작사가가 더 있을 경우 계속 추가 저장
+				char* next_lyricist = trim(lyricist);	//앞뒤 공백 제거
+				//중복 확인
+				fprintf(fp, ", %s ", next_lyricist);
+				lyricist = strtok(NULL, ",");
+			}
+			fputs("| ", fp);		
+		}
+		break;	//작사가 끝
+	}
+
+
+
+
+
+	fclose(fp);
+}
