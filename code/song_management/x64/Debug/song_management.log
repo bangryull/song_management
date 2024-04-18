@@ -1,14 +1,75 @@
-﻿  song_list.c
-C:\Users\wii07\source\repos\song_management\code\song_management\song_list.c(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
-C:\Users\wii07\source\repos\song_management\code\song_management\header.h(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+﻿  song.c
+C:\Users\손원희\OneDrive\바탕 화면\건국대 2학년 1학기\전기프1\song_management-main\code\song_management\song.c(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+C:\Users\손원희\OneDrive\바탕 화면\건국대 2학년 1학기\전기프1\song_management-main\code\song_management\header.h(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+  (소스 파일 'song.c'을(를) 컴파일하는 중)
+  
+  song_list.c
+C:\Users\손원희\OneDrive\바탕 화면\건국대 2학년 1학기\전기프1\song_management-main\code\song_management\song.c(2,10): error C1083: 포함 파일을 열 수 없습니다. 'playlist.c': No such file or directory
+C:\Users\손원희\OneDrive\바탕 화면\건국대 2학년 1학기\전기프1\song_management-main\code\song_management\song_list.c(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+C:\Users\손원희\OneDrive\바탕 화면\건국대 2학년 1학기\전기프1\song_management-main\code\song_management\header.h(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
   (소스 파일 'song_list.c'을(를) 컴파일하는 중)
   
-C:\Users\wii07\source\repos\song_management\code\song_management\song_list.c(40,12): warning C4098: 'song_list_menu': 'void' 함수에서 값을 반환하고 있습니다.
-C:\Users\wii07\source\repos\song_management\code\song_management\song_list.c(78,3): warning C4013: 'gets'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
-C:\Users\wii07\source\repos\song_management\code\song_management\song_list.c(88,12): warning C4047: '=': 'char'의 간접 참조 수준이 'void *'과(와) 다릅니다.
-C:\Users\wii07\source\repos\song_management\code\song_management\song_list.c(64,7): warning C4101: 'genre' :참조되지 않은 지역 변수입니다.
-C:\Users\wii07\source\repos\song_management\code\song_management\song_list.c(66,7): warning C4101: 'album_name' :참조되지 않은 지역 변수입니다.
-C:\Users\wii07\source\repos\song_management\code\song_management\song_list.c(61,7): warning C4101: 'singer' :참조되지 않은 지역 변수입니다.
-C:\Users\wii07\source\repos\song_management\code\song_management\song_list.c(63,7): warning C4101: 'lyric_writer' :참조되지 않은 지역 변수입니다.
-C:\Users\wii07\source\repos\song_management\code\song_management\song_list.c(62,7): warning C4101: 'song_writer' :참조되지 않은 지역 변수입니다.
-  song_management.vcxproj -> C:\Users\wii07\Source\Repos\song_management\code\x64\Debug\song_management.exe
+C:\Users\손원희\OneDrive\바탕 화면\건국대 2학년 1학기\전기프1\song_management-main\code\song_management\song_list.c(48,3): error C2181: if와 짝을 이루지 않는 잘못된 else문입니다.
+C:\Users\손원희\OneDrive\바탕 화면\건국대 2학년 1학기\전기프1\song_management-main\code\song_management\song_list.c(53,10): error C2143: 구문 오류: ')'이(가) '문자열' 앞에 없습니다.
+C:\Users\손원희\OneDrive\바탕 화면\건국대 2학년 1학기\전기프1\song_management-main\code\song_management\song_list.c(53,10): error C2143: 구문 오류: '{'이(가) '문자열' 앞에 없습니다.
+C:\Users\손원희\OneDrive\바탕 화면\건국대 2학년 1학기\전기프1\song_management-main\code\song_management\song_list.c(53,10): error C2059: 구문 오류: '문자열'
+C:\Users\손원희\OneDrive\바탕 화면\건국대 2학년 1학기\전기프1\song_management-main\code\song_management\song_list.c(53,44): error C2059: 구문 오류: ')'
+C:\Users\손원희\OneDrive\바탕 화면\건국대 2학년 1학기\전기프1\song_management-main\code\song_management\song_list.c(54,10): error C2143: 구문 오류: ')'이(가) '문자열' 앞에 없습니다.
+C:\Users\손원희\OneDrive\바탕 화면\건국대 2학년 1학기\전기프1\song_management-main\code\song_management\song_list.c(54,10): error C2143: 구문 오류: '{'이(가) '문자열' 앞에 없습니다.
+C:\Users\손원희\OneDrive\바탕 화면\건국대 2학년 1학기\전기프1\song_management-main\code\song_management\song_list.c(54,10): error C2059: 구문 오류: '문자열'
+C:\Users\손원희\OneDrive\바탕 화면\건국대 2학년 1학기\전기프1\song_management-main\code\song_management\song_list.c(54,32): error C2059: 구문 오류: ')'
+C:\Users\손원희\OneDrive\바탕 화면\건국대 2학년 1학기\전기프1\song_management-main\code\song_management\song_list.c(55,10): error C2143: 구문 오류: ')'이(가) '문자열' 앞에 없습니다.
+C:\Users\손원희\OneDrive\바탕 화면\건국대 2학년 1학기\전기프1\song_management-main\code\song_management\song_list.c(55,10): error C2143: 구문 오류: '{'이(가) '문자열' 앞에 없습니다.
+C:\Users\손원희\OneDrive\바탕 화면\건국대 2학년 1학기\전기프1\song_management-main\code\song_management\song_list.c(55,10): error C2059: 구문 오류: '문자열'
+C:\Users\손원희\OneDrive\바탕 화면\건국대 2학년 1학기\전기프1\song_management-main\code\song_management\song_list.c(55,30): error C2059: 구문 오류: ')'
+C:\Users\손원희\OneDrive\바탕 화면\건국대 2학년 1학기\전기프1\song_management-main\code\song_management\song_list.c(56,10): error C2143: 구문 오류: ')'이(가) '문자열' 앞에 없습니다.
+C:\Users\손원희\OneDrive\바탕 화면\건국대 2학년 1학기\전기프1\song_management-main\code\song_management\song_list.c(56,10): error C2143: 구문 오류: '{'이(가) '문자열' 앞에 없습니다.
+C:\Users\손원희\OneDrive\바탕 화면\건국대 2학년 1학기\전기프1\song_management-main\code\song_management\song_list.c(56,10): error C2059: 구문 오류: '문자열'
+C:\Users\손원희\OneDrive\바탕 화면\건국대 2학년 1학기\전기프1\song_management-main\code\song_management\song_list.c(56,33): error C2059: 구문 오류: ')'
+C:\Users\손원희\OneDrive\바탕 화면\건국대 2학년 1학기\전기프1\song_management-main\code\song_management\song_list.c(57,10): error C2143: 구문 오류: ')'이(가) '문자열' 앞에 없습니다.
+C:\Users\손원희\OneDrive\바탕 화면\건국대 2학년 1학기\전기프1\song_management-main\code\song_management\song_list.c(57,10): error C2143: 구문 오류: '{'이(가) '문자열' 앞에 없습니다.
+C:\Users\손원희\OneDrive\바탕 화면\건국대 2학년 1학기\전기프1\song_management-main\code\song_management\song_list.c(57,10): error C2059: 구문 오류: '문자열'
+C:\Users\손원희\OneDrive\바탕 화면\건국대 2학년 1학기\전기프1\song_management-main\code\song_management\song_list.c(57,34): error C2059: 구문 오류: ')'
+C:\Users\손원희\OneDrive\바탕 화면\건국대 2학년 1학기\전기프1\song_management-main\code\song_management\song_list.c(58,9): error C2143: 구문 오류: ')'이(가) '문자열' 앞에 없습니다.
+C:\Users\손원희\OneDrive\바탕 화면\건국대 2학년 1학기\전기프1\song_management-main\code\song_management\song_list.c(58,9): error C2143: 구문 오류: '{'이(가) '문자열' 앞에 없습니다.
+C:\Users\손원희\OneDrive\바탕 화면\건국대 2학년 1학기\전기프1\song_management-main\code\song_management\song_list.c(58,9): error C2059: 구문 오류: '문자열'
+C:\Users\손원희\OneDrive\바탕 화면\건국대 2학년 1학기\전기프1\song_management-main\code\song_management\song_list.c(58,21): error C2059: 구문 오류: ')'
+C:\Users\손원희\OneDrive\바탕 화면\건국대 2학년 1학기\전기프1\song_management-main\code\song_management\song_list.c(60,3): error C2059: 구문 오류: 'while'
+C:\Users\손원희\OneDrive\바탕 화면\건국대 2학년 1학기\전기프1\song_management-main\code\song_management\song_list.c(61,3): error C2059: 구문 오류: 'switch'
+C:\Users\손원희\OneDrive\바탕 화면\건국대 2학년 1학기\전기프1\song_management-main\code\song_management\song_list.c(81,2): error C2059: 구문 오류: '}'
+C:\Users\손원희\OneDrive\바탕 화면\건국대 2학년 1학기\전기프1\song_management-main\code\song_management\song_list.c(307,3): warning C4013: 'gets'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
+C:\Users\손원희\OneDrive\바탕 화면\건국대 2학년 1학기\전기프1\song_management-main\code\song_management\song_list.c(336,29): error C2065: 'singer': 선언되지 않은 식별자입니다.
+C:\Users\손원희\OneDrive\바탕 화면\건국대 2학년 1학기\전기프1\song_management-main\code\song_management\song_list.c(336,16): warning C4477: 'fprintf' : 서식 문자열 '%s'에 'char *' 형식의 인수가 필요하지만 variadic 인수 1의 형식이 'int'입니다.
+C:\Users\손원희\OneDrive\바탕 화면\건국대 2학년 1학기\전기프1\song_management-main\code\song_management\song_list.c(336,16): warning C4313: 'fprintf': 서식 문자열의 '%s'이(가) int' 형식의 인수 1과(와) 충돌합니다.
+C:\Users\손원희\OneDrive\바탕 화면\건국대 2학년 1학기\전기프1\song_management-main\code\song_management\song_list.c(338,18): error C2065: 'singer': 선언되지 않은 식별자입니다.
+C:\Users\손원희\OneDrive\바탕 화면\건국대 2학년 1학기\전기프1\song_management-main\code\song_management\song_list.c(338,18): warning C4047: '!=': 'int'의 간접 참조 수준이 'void *'과(와) 다릅니다.
+C:\Users\손원희\OneDrive\바탕 화면\건국대 2학년 1학기\전기프1\song_management-main\code\song_management\song_list.c(340,37): error C2065: 'next_singer': 선언되지 않은 식별자입니다.
+C:\Users\손원희\OneDrive\바탕 화면\건국대 2학년 1학기\전기프1\song_management-main\code\song_management\song_list.c(340,17): warning C4477: 'fprintf' : 서식 문자열 '%s'에 'char *' 형식의 인수가 필요하지만 variadic 인수 1의 형식이 'int'입니다.
+C:\Users\손원희\OneDrive\바탕 화면\건국대 2학년 1학기\전기프1\song_management-main\code\song_management\song_list.c(340,17): warning C4313: 'fprintf': 서식 문자열의 '%s'이(가) int' 형식의 인수 1과(와) 충돌합니다.
+C:\Users\손원희\OneDrive\바탕 화면\건국대 2학년 1학기\전기프1\song_management-main\code\song_management\song_list.c(341,12): error C2065: 'singer': 선언되지 않은 식별자입니다.
+C:\Users\손원희\OneDrive\바탕 화면\건국대 2학년 1학기\전기프1\song_management-main\code\song_management\song_list.c(341,12): warning C4047: '=': 'int'의 간접 참조 수준이 'char *'과(와) 다릅니다.
+C:\Users\손원희\OneDrive\바탕 화면\건국대 2학년 1학기\전기프1\song_management-main\code\song_management\song_list.c(330,4): error C2044: continue가 잘못되었습니다.
+C:\Users\손원희\OneDrive\바탕 화면\건국대 2학년 1학기\전기프1\song_management-main\code\song_management\song_list.c(345,3): error C2043: break가 잘못되었습니다.
+C:\Users\손원희\OneDrive\바탕 화면\건국대 2학년 1학기\전기프1\song_management-main\code\song_management\song_list.c(348,9): error C2143: 구문 오류: ')'이(가) '문자열' 앞에 없습니다.
+C:\Users\손원희\OneDrive\바탕 화면\건국대 2학년 1학기\전기프1\song_management-main\code\song_management\song_list.c(348,9): error C2143: 구문 오류: '{'이(가) '문자열' 앞에 없습니다.
+C:\Users\손원희\OneDrive\바탕 화면\건국대 2학년 1학기\전기프1\song_management-main\code\song_management\song_list.c(348,9): error C2059: 구문 오류: '문자열'
+C:\Users\손원희\OneDrive\바탕 화면\건국대 2학년 1학기\전기프1\song_management-main\code\song_management\song_list.c(348,45): error C2059: 구문 오류: ')'
+C:\Users\손원희\OneDrive\바탕 화면\건국대 2학년 1학기\전기프1\song_management-main\code\song_management\song_list.c(349,2): error C2059: 구문 오류: 'while'
+C:\Users\손원희\OneDrive\바탕 화면\건국대 2학년 1학기\전기프1\song_management-main\code\song_management\song_list.c(410,219): error C2001: 상수에 줄 바꿈 문자가 있습니다.
+C:\Users\손원희\OneDrive\바탕 화면\건국대 2학년 1학기\전기프1\song_management-main\code\song_management\song_list.c(471,2): warning C4273: 'fclose': dll 연결이 일치하지 않습니다.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\ucrt\stdio.h(152,26):
+  'fclose'의 이전 정의를 참조하십시오.
+  
+C:\Users\손원희\OneDrive\바탕 화면\건국대 2학년 1학기\전기프1\song_management-main\code\song_management\song_list.c(472,1): error C2059: 구문 오류: '}'
+C:\Users\손원희\OneDrive\바탕 화면\건국대 2학년 1학기\전기프1\song_management-main\code\song_management\song_list.c(507,2): warning C4273: 'remove': dll 연결이 일치하지 않습니다.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\ucrt\stdio.h(369,26):
+  'remove'의 이전 정의를 참조하십시오.
+  
+C:\Users\손원희\OneDrive\바탕 화면\건국대 2학년 1학기\전기프1\song_management-main\code\song_management\song_list.c(508,9): error C2143: 구문 오류: ')'이(가) '문자열' 앞에 없습니다.
+C:\Users\손원희\OneDrive\바탕 화면\건국대 2학년 1학기\전기프1\song_management-main\code\song_management\song_list.c(508,9): error C2143: 구문 오류: '{'이(가) '문자열' 앞에 없습니다.
+C:\Users\손원희\OneDrive\바탕 화면\건국대 2학년 1학기\전기프1\song_management-main\code\song_management\song_list.c(508,9): error C2059: 구문 오류: '문자열'
+C:\Users\손원희\OneDrive\바탕 화면\건국대 2학년 1학기\전기프1\song_management-main\code\song_management\song_list.c(508,29): error C2059: 구문 오류: ')'
+C:\Users\손원희\OneDrive\바탕 화면\건국대 2학년 1학기\전기프1\song_management-main\code\song_management\song_list.c(509,2): error C2059: 구문 오류: 'if'
+C:\Users\손원희\OneDrive\바탕 화면\건국대 2학년 1학기\전기프1\song_management-main\code\song_management\song_list.c(512,2): error C2059: 구문 오류: 'else'
+C:\Users\손원희\OneDrive\바탕 화면\건국대 2학년 1학기\전기프1\song_management-main\code\song_management\song_list.c(515,1): error C2059: 구문 오류: '}'
+  코드를 생성하고 있습니다...
