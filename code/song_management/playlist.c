@@ -12,39 +12,39 @@ void playlistMenu()
 	while (loop)
 	{
 		int getMenu;
-		printf("\n¿øÇÏ´Â ¸Ş´º¿¡ ÇØ´çÇÏ´Â ¼ıÀÚ¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä.\n\n");
-		printf("0. µÚ·Î°¡±â\n");
-		printf("1. ÇÃ·¹ÀÌ¸®½ºÆ® Ãâ·Â\n");
-		printf("2. ÇÃ·¹ÀÌ¸®½ºÆ® Ãß°¡\n");
-		printf("3. ÇÃ·¹ÀÌ¸®½ºÆ® »èÁ¦\n\n");
-		printf("¸Ş´º ¼±ÅÃ: ");
+		printf("\nì›í•˜ëŠ” ë©”ë‰´ì— í•´ë‹¹í•˜ëŠ” ìˆ«ìë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”.\n\n");
+		printf("0. ë’¤ë¡œê°€ê¸°\n");
+		printf("1. í”Œë ˆì´ë¦¬ìŠ¤íŠ¸ ì¶œë ¥\n");
+		printf("2. í”Œë ˆì´ë¦¬ìŠ¤íŠ¸ ì¶”ê°€\n");
+		printf("3. í”Œë ˆì´ë¦¬ìŠ¤íŠ¸ ì‚­ì œ\n\n");
+		printf("ë©”ë‰´ ì„ íƒ: ");
 		scanf("%d", &getMenu);
 
-		while (getchar() != '\n');//¹öÆÛ ºñ¿ì±â
+		while (getchar() != '\n');//ë²„í¼ ë¹„ìš°ê¸°
 
 		switch (getMenu)
 		{
 		case 0:
 		{
-			//ÀÌÀü¸Ş´º·Î µ¹¾Æ°©´Ï´Ù.
+			//ì´ì „ë©”ë‰´ë¡œ ëŒì•„ê°‘ë‹ˆë‹¤.
 			loop = 0;
 			break;
 		}
 		case 1:
 		{
-			//ÇÃ¸® ¸ñ·Ï Ãâ·Â
+			//í”Œë¦¬ ëª©ë¡ ì¶œë ¥
 			printPlaylist();
 			break;
 		}
 		case 2:
 		{
-			//ÇÃ¸® Ãß°¡
+			//í”Œë¦¬ ì¶”ê°€
 			addPlaylist();
 			break;
 		}
 		case 3:
 		{
-			//ÇÃ¸® »èÁ¦
+			//í”Œë¦¬ ì‚­ì œ
 			deletePlaylist();
 			break;
 		}
@@ -53,7 +53,7 @@ void playlistMenu()
 	return;
 }
 
-//ÇÃ·¹ÀÌ¸®½ºÆ® ¸ñ·ÏÀ» Ãâ·Â
+//í”Œë ˆì´ë¦¬ìŠ¤íŠ¸ ëª©ë¡ì„ ì¶œë ¥
 void printPlaylist()
 {
 	while (1)
@@ -73,14 +73,14 @@ void printPlaylist()
 
 		buffer[0] = '\n';
 
-		printf("\n¿øÇÏ´Â ÇÃ·¹ÀÌ¸®½ºÆ®¿¡ ÇØ´çÇÏ´Â ¹øÈ£¸¦ ÀÔ·ÂÇÏ¼¼¿ä. (¼ıÀÚ \"0\"ÀÔ·Â½Ã ÀÌÀü ÆäÀÌÁö·Î ÀÌµ¿) : ");
+		printf("\nì›í•˜ëŠ” í”Œë ˆì´ë¦¬ìŠ¤íŠ¸ì— í•´ë‹¹í•˜ëŠ” ë²ˆí˜¸ë¥¼ ì…ë ¥í•˜ì„¸ìš”. (ìˆ«ì \"0\"ì…ë ¥ì‹œ ì´ì „ í˜ì´ì§€ë¡œ ì´ë™) : ");
 
 
 
-		scanf("%d", &getMenu);//¿øÇÏ´Â ÇÃ¸®¿¡ ÇØ´çÇÏ´Â ¹øÈ£ ÀÔ·Â¹Ş±â
+		scanf("%d", &getMenu);//ì›í•˜ëŠ” í”Œë¦¬ì— í•´ë‹¹í•˜ëŠ” ë²ˆí˜¸ ì…ë ¥ë°›ê¸°
 		while (getchar() != '\n');
 
-		int numLength = getMenu / 10 + 1; //¿øÇÏ´Â ÇÃ·¹ÀÌ¸®½ºÆ®ÀÇ ¹øÈ£ÀÇ ±æÀÌ ÀÔ·Â¹ŞÀ½
+		int numLength = getMenu / 10 + 1; //ì›í•˜ëŠ” í”Œë ˆì´ë¦¬ìŠ¤íŠ¸ì˜ ë²ˆí˜¸ì˜ ê¸¸ì´ ì…ë ¥ë°›ìŒ
 
 		if (getMenu == 0)
 		{
@@ -90,9 +90,9 @@ void printPlaylist()
 
 		else
 		{
-			fseek(fp, 0, SEEK_SET);//ÆÄÀÏ Æ÷ÀÎÅÍ¸¦ ´Ù½Ã ÆÄÀÏÀÇ Ã³À½À¸·Î ÀÌµ¿
+			fseek(fp, 0, SEEK_SET);//íŒŒì¼ í¬ì¸í„°ë¥¼ ë‹¤ì‹œ íŒŒì¼ì˜ ì²˜ìŒìœ¼ë¡œ ì´ë™
 			char playlistName[FILE_NAME] = { 0, };
-			while (fgets(playlistName, MAX, fp) != NULL || listCount <= getMenu) //¿øÇÏ´Â ÇÃ¸®¿¡ ÇØ´çÇÏ´Â ¹øÈ£¸¦ ¹ß°ßÇÒ ¶§±îÁö ·çÇÁ
+			while (fgets(playlistName, MAX, fp) != NULL || listCount <= getMenu) //ì›í•˜ëŠ” í”Œë¦¬ì— í•´ë‹¹í•˜ëŠ” ë²ˆí˜¸ë¥¼ ë°œê²¬í•  ë•Œê¹Œì§€ ë£¨í”„
 			{
 				//fgets(playlistName, MAX, fp);
 
@@ -108,8 +108,8 @@ void printPlaylist()
 					j++;
 				}
 
-				//¿øÇÏ´Â ÇÃ¸®¿¡ ¸ÅÄªµÈ ¹øÈ£ÀÎ°¡ Ã¼Å©
-				if (atoi(index) == getMenu && playlistName[j] == '.') //index°¡ "12"ÀÏ¶§¿Í ÇÃ¸®¿¡ ¸ÅÄªµÈ ¹øÈ£ "123. "ÀÌ µ¿ÀÏ½Ã µÇ´Â °ÍÀ» ¹æÁö
+				//ì›í•˜ëŠ” í”Œë¦¬ì— ë§¤ì¹­ëœ ë²ˆí˜¸ì¸ê°€ ì²´í¬
+				if (atoi(index) == getMenu && playlistName[j] == '.') //indexê°€ "12"ì¼ë•Œì™€ í”Œë¦¬ì— ë§¤ì¹­ëœ ë²ˆí˜¸ "123. "ì´ ë™ì¼ì‹œ ë˜ëŠ” ê²ƒì„ ë°©ì§€
 				{
 					fclose(fp);
 					openPlaylist(playlistName);
@@ -122,25 +122,25 @@ void printPlaylist()
 
 }
 
-void openPlaylist(char playlistName[]) //playlistNameÀÇ ¿¹½Ã : 1. Åğ±Ù±æ ÇÃ·¹ÀÌ¸®½ºÆ®
+void openPlaylist(char playlistName[]) //playlistNameì˜ ì˜ˆì‹œ : 1. í‡´ê·¼ê¸¸ í”Œë ˆì´ë¦¬ìŠ¤íŠ¸
 {
 	while (1)
 	{
 		system("cls");
-		//¹ŞÀº ÇÃ·¹ÀÌ¸®½ºÆ® ÀÌ¸§¿¡¼­ °ø¹é°ú ¼ıÀÚ¸¦ Áö¿öÁÜ
-		//ex) <1. Åğ±Ù±æ ÇÃ·¹ÀÌ¸®½ºÆ® -> Åğ±Ù±æ ÇÃ·¹ÀÌ¸®½ºÆ®>·Î ¹Ş¾Æ º¯°æÇØÁÜ
+		//ë°›ì€ í”Œë ˆì´ë¦¬ìŠ¤íŠ¸ ì´ë¦„ì—ì„œ ê³µë°±ê³¼ ìˆ«ìë¥¼ ì§€ì›Œì¤Œ
+		//ex) <1. í‡´ê·¼ê¸¸ í”Œë ˆì´ë¦¬ìŠ¤íŠ¸ -> í‡´ê·¼ê¸¸ í”Œë ˆì´ë¦¬ìŠ¤íŠ¸>ë¡œ ë°›ì•„ ë³€ê²½í•´ì¤Œ
 		char pliName[FILE_NAME] = { 0, };
 		strcpy(pliName, playlistName);
 
 		int i = 0;
-		char* playlistName = pliName + 3; //¼ıÀÚ¸¦ »ı·«ÇØÁÜ
+		char* playlistName = pliName + 3; //ìˆ«ìë¥¼ ìƒëµí•´ì¤Œ
 		char copyPliName[FILE_NAME] = { 0, };
 		strcpy(copyPliName, pliName);
 		int len = 0; // strlen(pliName);
 		len = strlen(pliName);
 
 		if (len > 0 && pliName[len - 1] == '\n') {
-			pliName[len - 1] = '\0'; // °³Çà ¹®ÀÚ¸¦ Á¦°Å
+			pliName[len - 1] = '\0'; // ê°œí–‰ ë¬¸ìë¥¼ ì œê±°
 		}
 		printf("\n%s\n", playlistName);
 
@@ -156,11 +156,11 @@ void openPlaylist(char playlistName[]) //playlistNameÀÇ ¿¹½Ã : 1. Åğ±Ù±æ ÇÃ·¹ÀÌ¸
 
 		fclose(fp);
 
-		printf("\n¾Æ·¡ÀÇ ¸Ş´º Áß ¿øÇÏ´Â ¹øÈ£¸¦ ¼±ÅÃÇØÁÖ¼¼¿ä. \n\n");
-		printf("0. µÚ·Î°¡±â\n");
-		printf("1. ÇöÀç ÇÃ·¹ÀÌ¸®½ºÆ®¿¡ ³ë·¡ Ãß°¡\n");
-		printf("2. ÇöÀç ÇÃ·¹ÀÌ¸®½ºÆ®¿¡ ³ë·¡ »èÁ¦\n");
-		printf("\n¸Ş´º¼±ÅÃ : ");
+		printf("\nì•„ë˜ì˜ ë©”ë‰´ ì¤‘ ì›í•˜ëŠ” ë²ˆí˜¸ë¥¼ ì„ íƒí•´ì£¼ì„¸ìš”. \n\n");
+		printf("0. ë’¤ë¡œê°€ê¸°\n");
+		printf("1. í˜„ì¬ í”Œë ˆì´ë¦¬ìŠ¤íŠ¸ì— ë…¸ë˜ ì¶”ê°€\n");
+		printf("2. í˜„ì¬ í”Œë ˆì´ë¦¬ìŠ¤íŠ¸ì— ë…¸ë˜ ì‚­ì œ\n");
+		printf("\në©”ë‰´ì„ íƒ : ");
 
 		int getMenu;
 
@@ -186,61 +186,62 @@ void openPlaylist(char playlistName[]) //playlistNameÀÇ ¿¹½Ã : 1. Åğ±Ù±æ ÇÃ·¹ÀÌ¸
 }
 
 
-//ÇÃ·¹ÀÌ¸®½ºÆ® Ãß°¡
+//í”Œë ˆì´ë¦¬ìŠ¤íŠ¸ ì¶”ê°€
 void addPlaylist()
 {
 	char pName[STRING_SIZE];
 	FILE* fp = fopen("Playlist_list.txt", "r");
 	while (1) {
 		int duplicated = 0;
-		printf("Ãß°¡ÇÏ°í ½ÍÀº ÇÃ·¹ÀÌ¸®½ºÆ®ÀÇ ÀÌ¸§À» ÀÔ·ÂÇØÁÖ¼¼¿ä. (°ø¹é ÀÔ·Â½Ã ÀÌÀü ÆäÀÌÁö·Î ÀÌµ¿):");
+		printf("ì¶”ê°€í•˜ê³  ì‹¶ì€ í”Œë ˆì´ë¦¬ìŠ¤íŠ¸ì˜ ì´ë¦„ì„ ì…ë ¥í•´ì£¼ì„¸ìš”. (ê³µë°± ì…ë ¥ì‹œ ì´ì „ í˜ì´ì§€ë¡œ ì´ë™):");
 		gets(pName);
 
 		char temp[STRING_SIZE];
 		while (fgets(temp, sizeof(temp), fp) != NULL) {
 			char existingName[STRING_SIZE];
 			strcpy(existingName, temp + 3);
-			existingName[strcspn(existingName, "\n")] = 0; //°³Çà ¹®ÀÚ Á¦°Å
+			existingName[strcspn(existingName, "\n")] = 0; //ê°œí–‰ ë¬¸ì ì œê±°
 			if (strcmp(existingName, pName) == 0) {
-				printf("ÀÌ¹Ì Á¸ÀçÇÏ´Â ÇÃ·¹ÀÌ¸®½ºÆ® ÀÌ¸§ÀÔ´Ï´Ù.´Ù¸¥ ÀÔ·ÂÀ» ÀÔ·ÂÇØÁÖ¼¼¿ä.\n");
+				printf("ì´ë¯¸ ì¡´ì¬í•˜ëŠ” í”Œë ˆì´ë¦¬ìŠ¤íŠ¸ ì´ë¦„ì…ë‹ˆë‹¤.ë‹¤ë¥¸ ì…ë ¥ì„ ì…ë ¥í•´ì£¼ì„¸ìš”.\n");
 				duplicated = 1;
 				break;
 			}
 		}
 
-		if (!duplicated) { //Áßº¹ÀÌ ¾øÀ¸¸é ¹İº¹ Á¾·á
+		if (!duplicated) { //ì¤‘ë³µì´ ì—†ìœ¼ë©´ ë°˜ë³µ ì¢…ë£Œ
 			break;
 		}
 	}
 
 	int j = 0;
 	int count = 0;
-	// ÀÔ·Â¹ŞÀº ¹®ÀÚ¿­ÀÌ °ø¹é°ú ÅÇÀ¸·Î¸¸ ÀÌ·ç¾îÁ³´ÂÁö È®ÀÎ
+	// ì…ë ¥ë°›ì€ ë¬¸ìì—´ì´ ê³µë°±ê³¼ íƒ­ìœ¼ë¡œë§Œ ì´ë£¨ì–´ì¡ŒëŠ”ì§€ í™•ì¸
 	while (pName[j] != '\0') {
 		if (pName[j] == ' ' || pName[j] == '\t') {
 			count++;
 		}
 		j++;
 	}
-	//°ø¹é ÀÔ·Â½Ã ÀÌÀü ÆäÀÌÁö·Î ÀÌµ¿
+	//ê³µë°± ì…ë ¥ì‹œ ì´ì „ í˜ì´ì§€ë¡œ ì´ë™
 	if (j == count) {
-		printPlaylist();
+		playlistMenu();
+		fclose(fp);
 	}
-	//Ãß°¡ÇÒ ¹øÈ£ ÁöÁ¤
-	fp = fopen("Playlist_list.txt", "r");
-	int num = 0;  // ±âÁ¸¿¡ Á¸ÀçÇÏ´Â ÇÃ·¹ÀÌ¸®½ºÆ® °³¼ö
+	//ì¶”ê°€í•  ë²ˆí˜¸ ì§€ì •
+	rewind(fp); //íŒŒì¼ í¬ì¸í„° ì´ë™
+	int num = 0;  // ê¸°ì¡´ì— ì¡´ì¬í•˜ëŠ” í”Œë ˆì´ë¦¬ìŠ¤íŠ¸ ê°œìˆ˜
 	char temp[STRING_SIZE];
 	while (fgets(temp, sizeof(temp), fp) != NULL) {
 		if (temp[0] >= '0' && temp[0] <= '9') {
 			num++;
 		}
 	}
-
+	fclose(fp);
 
 	fp = fopen("Playlist_list.txt", "a");
-	fprintf(fp, "\n%d. %s", num + 1, removeSpace(pName)); // ÆÄÀÏ¿¡ ÇÃ·¹ÀÌ¸®½ºÆ® Ãß°¡ 
-
-	// ÇÃ·¹ÀÌ¸®½ºÆ® ÅØ½ºÆ® ÆÄÀÏ »ı¼º
+	fprintf(fp, "\n%d. %s", num + 1, removeSpace(pName)); // íŒŒì¼ì— í”Œë ˆì´ë¦¬ìŠ¤íŠ¸ ì¶”ê°€ 
+	fclose(fp);
+	// í”Œë ˆì´ë¦¬ìŠ¤íŠ¸ í…ìŠ¤íŠ¸ íŒŒì¼ ìƒì„±
 	char filename[STRING_SIZE];
 	sprintf(filename, "%s.txt", removeSpace(pName));
 	fp = fopen(filename, "a");
@@ -248,7 +249,7 @@ void addPlaylist()
 	fclose(fp);
 }
 
-//ÇÃ·¹ÀÌ¸®½ºÆ® »èÁ¦
+//í”Œë ˆì´ë¦¬ìŠ¤íŠ¸ ì‚­ì œ
 void deletePlaylist()
 {
 	while (1)
@@ -256,7 +257,7 @@ void deletePlaylist()
 		system("cls");
 		int getMenu;
 
-		printf("\nÇÃ·¹ÀÌ¸®½ºÆ® ¸ñ·Ï\n\n");
+		printf("\ní”Œë ˆì´ë¦¬ìŠ¤íŠ¸ ëª©ë¡\n\n");
 
 		FILE* fp = fopen("Playlist_list.txt", "r");
 
@@ -265,16 +266,16 @@ void deletePlaylist()
 		fread(buffer, 1, MAX, fp);
 		printf("%s", buffer);
 
-		printf("\n»èÁ¦ÇÒ ÇÃ·¹ÀÌ¸®½ºÆ®ÀÇ ¹øÈ£¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä (¼ıÀÚ \"0\"ÀÔ·Â½Ã ÀÌÀü ÆäÀÌÁö·Î ÀÌµ¿) : ");
+		printf("\nì‚­ì œí•  í”Œë ˆì´ë¦¬ìŠ¤íŠ¸ì˜ ë²ˆí˜¸ë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš” (ìˆ«ì \"0\"ì…ë ¥ì‹œ ì´ì „ í˜ì´ì§€ë¡œ ì´ë™) : ");
 
 
-		fseek(fp, 0, SEEK_SET);//ÆÄÀÏ Æ÷ÀÎÅÍ¸¦ ´Ù½Ã ÆÄÀÏÀÇ Ã³À½À¸·Î ÀÌµ¿
+		fseek(fp, 0, SEEK_SET);//íŒŒì¼ í¬ì¸í„°ë¥¼ ë‹¤ì‹œ íŒŒì¼ì˜ ì²˜ìŒìœ¼ë¡œ ì´ë™
 
 		if (scanf("%d", &getMenu) == 0)
 		{
 			while (getchar() != '\n');
 			continue;
-		}//¹öÆÛºñ¿ì±â
+		}//ë²„í¼ë¹„ìš°ê¸°
 
 		int numLength = getMenu / 10 + 1;
 
@@ -288,12 +289,12 @@ void deletePlaylist()
 			char playlistName[MAX] = { 0, };
 
 
-			while (feof(fp) == 0) //¿øÇÏ´Â ÇÃ¸®¿¡ ÇØ´çÇÏ´Â ¹øÈ£¸¦ ¹ß°ßÇÒ ¶§±îÁö ·çÇÁ
+			while (feof(fp) == 0) //ì›í•˜ëŠ” í”Œë¦¬ì— í•´ë‹¹í•˜ëŠ” ë²ˆí˜¸ë¥¼ ë°œê²¬í•  ë•Œê¹Œì§€ ë£¨í”„
 			{
 				char index[STRING_SIZE] = "";
 
 				fgets(playlistName, MAX, fp);
-				//¿øÇÏ´Â ÇÃ¸®¿¡ ¸ÅÄªµÈ ¹øÈ£ÀÎ°¡ Ã¼Å©
+				//ì›í•˜ëŠ” í”Œë¦¬ì— ë§¤ì¹­ëœ ë²ˆí˜¸ì¸ê°€ ì²´í¬
 				int j = 0;
 
 				for (int i = 0; i < numLength; i++)
@@ -305,7 +306,7 @@ void deletePlaylist()
 				}
 				if (index == "\n")
 					break;
-				if (atoi(index) == getMenu && playlistName[j] == '.') //index°¡ "12"ÀÏ¶§¿Í ÇÃ¸®¿¡ ¸ÅÄªµÈ ¹øÈ£ "123. "ÀÌ µ¿ÀÏ½Ã µÇ´Â °ÍÀ» ¹æÁö
+				if (atoi(index) == getMenu && playlistName[j] == '.') //indexê°€ "12"ì¼ë•Œì™€ í”Œë¦¬ì— ë§¤ì¹­ëœ ë²ˆí˜¸ "123. "ì´ ë™ì¼ì‹œ ë˜ëŠ” ê²ƒì„ ë°©ì§€
 				{
 					char* pliName = playlistName + 3;
 
@@ -313,21 +314,21 @@ void deletePlaylist()
 
 					if (len > 0 && pliName[len - 1] == '\n')
 					{
-						pliName[len - 1] = '\0'; // °³Çà ¹®ÀÚ¸¦ Á¦°Å
+						pliName[len - 1] = '\0'; // ê°œí–‰ ë¬¸ìë¥¼ ì œê±°
 					}
 
 					fclose(fp);
 
 					strcat(pliName, ".txt");
-					//ÇÃ·¹ÀÌ¸®½ºÆ® ¸ñ·Ï(Playlist_list.txt)¿¡¼­ Áö¿ï ÇÃ¸® ÀÌ¸§À» Áö¿öÁÖ±â
-					delName(index, "Playlist_list.txt"); //ÀÎµ¦½º ¹øÈ£·Î ÆÄ¾ÇÇØ¼­ Áö¿öÁÜ
+					//í”Œë ˆì´ë¦¬ìŠ¤íŠ¸ ëª©ë¡(Playlist_list.txt)ì—ì„œ ì§€ìš¸ í”Œë¦¬ ì´ë¦„ì„ ì§€ì›Œì£¼ê¸°
+					delName(index, "Playlist_list.txt"); //ì¸ë±ìŠ¤ ë²ˆí˜¸ë¡œ íŒŒì•…í•´ì„œ ì§€ì›Œì¤Œ
 
-					FILE* fp = fopen("Playlist_list.txt", "r"); //ÇÃ¸®ÀÇ ÀÎµ¦½º ¹øÈ£¸¦ Á¤·ÄÇÏ±â À§ÇØ ´Ù½Ã ¿¬´Ù
-					fileArrange(fp, "Playlist_list.txt"); //Á¤·ÄÇÏ°í ÆÄÀÏ´İ±â
+					FILE* fp = fopen("Playlist_list.txt", "r"); //í”Œë¦¬ì˜ ì¸ë±ìŠ¤ ë²ˆí˜¸ë¥¼ ì •ë ¬í•˜ê¸° ìœ„í•´ ë‹¤ì‹œ ì—°ë‹¤
+					fileArrange(fp, "Playlist_list.txt"); //ì •ë ¬í•˜ê³  íŒŒì¼ë‹«ê¸°
 
 					remove(pliName);
 					break;
-					//ÇÃ¸®¸ñ·ÏÀ» Á¤¸®(ÇÃ¸® ¹øÈ£) µîµî
+					//í”Œë¦¬ëª©ë¡ì„ ì •ë¦¬(í”Œë¦¬ ë²ˆí˜¸) ë“±ë“±
 				}
 
 			}
@@ -337,15 +338,15 @@ void deletePlaylist()
 
 }
 
-void delName(char index[], const char* fileName)//ÆÄÀÏ¿¡¼­ index¿¡ ÇØ´çÇÏ´Â ³ë·¡ ¶Ç´Â ÇÃ¸®¸¦ »èÁ¦
+void delName(char index[], const char* fileName)//íŒŒì¼ì—ì„œ indexì— í•´ë‹¹í•˜ëŠ” ë…¸ë˜ ë˜ëŠ” í”Œë¦¬ë¥¼ ì‚­ì œ
 {
 
 	char sourcefileName[FILE_NAME] = { 0, };
 	strcpy(sourcefileName, fileName);
-	FILE* sourceFile = fopen(sourcefileName, "r");//Playlist_list.txtÆÄÀÏÀ» ¿ÀÇÂ
+	FILE* sourceFile = fopen(sourcefileName, "r");//Playlist_list.txtíŒŒì¼ì„ ì˜¤í”ˆ
 
 
-	FILE* tempFile; //»õ·Î »ı¼ºÇÒ ÆÄÀÏÀÇ Æ÷ÀÎÅÍ
+	FILE* tempFile; //ìƒˆë¡œ ìƒì„±í•  íŒŒì¼ì˜ í¬ì¸í„°
 	char tempName[30] = "tempFile.txt";
 	char buffer[MAX];
 
@@ -371,7 +372,7 @@ void delName(char index[], const char* fileName)//ÆÄÀÏ¿¡¼­ index¿¡ ÇØ´çÇÏ´Â ³ë·¡
 	return;
 }
 
-void fileArrange(FILE* fp, const char* pliName)//ÅØ½ºÆ® ÆÄÀÏ¿¡ ¾²¿©Áø ÀÎµ¦½º¸¦ Á¤¸®ÇØÁÜ
+void fileArrange(FILE* fp, const char* pliName)//í…ìŠ¤íŠ¸ íŒŒì¼ì— ì“°ì—¬ì§„ ì¸ë±ìŠ¤ë¥¼ ì •ë¦¬í•´ì¤Œ
 {
 	int indexCount = 0;
 	int currentLine = 1;
@@ -384,13 +385,13 @@ void fileArrange(FILE* fp, const char* pliName)//ÅØ½ºÆ® ÆÄÀÏ¿¡ ¾²¿©Áø ÀÎµ¦½º¸¦ Á
 
 	FILE* tempFile = fopen(tempName, "w");
 
-	while (fgets(buffer, sizeof(buffer), fp) != NULL)//¶óÀÎ ÀÎµ¦½º¸¦ ¼ø¼­´ë·Î Á¤·Ä
+	while (fgets(buffer, sizeof(buffer), fp) != NULL)//ë¼ì¸ ì¸ë±ìŠ¤ë¥¼ ìˆœì„œëŒ€ë¡œ ì •ë ¬
 	{
 		if (strlen(buffer) <= 2)
 			break;
-		char index[MAX] = { 0, };//¶óÀÎ Á¤·ÄÀ» À§ÇÑ index¹Ş±â¿ë
+		char index[MAX] = { 0, };//ë¼ì¸ ì •ë ¬ì„ ìœ„í•œ indexë°›ê¸°ìš©
 		sprintf(index, "%d", currentLine);
-		int spaceToReplace = 0; //¶óÀÎ¿¡ µû¶ó ¼öÁ¤ÇÒ ÀÎµ¥½º¸¦ ÀÔ·ÂÇÒ °ø°£ÀÇ ¼ö
+		int spaceToReplace = 0; //ë¼ì¸ì— ë”°ë¼ ìˆ˜ì •í•  ì¸ë°ìŠ¤ë¥¼ ì…ë ¥í•  ê³µê°„ì˜ ìˆ˜
 
 
 		while (buffer[spaceToReplace + 1] == '.')
@@ -403,14 +404,14 @@ void fileArrange(FILE* fp, const char* pliName)//ÅØ½ºÆ® ÆÄÀÏ¿¡ ¾²¿©Áø ÀÎµ¦½º¸¦ Á
 			for (int j = 0; j < strlen(buffer); j++)
 				buffer[j] = buffer[j + 1];
 			buffer[strlen(buffer) - 1] = NULL;
-		} //ÀÎµ¦½º Áö¿öÁÖ±â ( ex)"1. Ãâ±Ù±æ ÇÃ·¹ÀÌ¸®½ºÆ®"->". Ãâ±Ù±æ ÇÃ·¹ÀÌ¸®½ºÆ®")
+		} //ì¸ë±ìŠ¤ ì§€ì›Œì£¼ê¸° ( ex)"1. ì¶œê·¼ê¸¸ í”Œë ˆì´ë¦¬ìŠ¤íŠ¸"->". ì¶œê·¼ê¸¸ í”Œë ˆì´ë¦¬ìŠ¤íŠ¸")
 
 		strcat(index, buffer);
 		strcat(index, "\n");
-		//»õ·Î Á¤·ÄµÈ ÀÎµ¦½º¿Í ±âÁ¸ÀÇ ÇÃ·¹ÀÌ¸®½ºÆ® ÀÌ¸§¿¡¼­ ÀÎµ¦½º¸¦ Áö¿öÁØ ºÎºĞÀ» ÇÕÃÄÁØ´Ù.
+		//ìƒˆë¡œ ì •ë ¬ëœ ì¸ë±ìŠ¤ì™€ ê¸°ì¡´ì˜ í”Œë ˆì´ë¦¬ìŠ¤íŠ¸ ì´ë¦„ì—ì„œ ì¸ë±ìŠ¤ë¥¼ ì§€ì›Œì¤€ ë¶€ë¶„ì„ í•©ì³ì¤€ë‹¤.
 		fputs(index, tempFile);
 
-		memset(buffer, 0, sizeof(buffer));//¹öÆÛ¸¦ ºñ¿öÁÜ
+		memset(buffer, 0, sizeof(buffer));//ë²„í¼ë¥¼ ë¹„ì›Œì¤Œ
 
 		currentLine++;
 	}
@@ -424,7 +425,7 @@ void fileArrange(FILE* fp, const char* pliName)//ÅØ½ºÆ® ÆÄÀÏ¿¡ ¾²¿©Áø ÀÎµ¦½º¸¦ Á
 	return;
 }
 
-void addSongInPli(char pliName[])//ÅØ½ºÆ®ÆÄÀÏÀÇ ÀÌ¸§À» ¹ŞÀ½
+void addSongInPli(char pliName[])//í…ìŠ¤íŠ¸íŒŒì¼ì˜ ì´ë¦„ì„ ë°›ìŒ
 {
 	while (1)
 	{
@@ -436,7 +437,7 @@ void addSongInPli(char pliName[])//ÅØ½ºÆ®ÆÄÀÏÀÇ ÀÌ¸§À» ¹ŞÀ½
 
 		char buffer[MAX] = { 0, };
 
-		FILE* songList = fopen("song_list.txt", "r");//¸ğµç ³ë·¡µéÀ» Ãâ·Â
+		FILE* songList = fopen("song_list.txt", "r");//ëª¨ë“  ë…¸ë˜ë“¤ì„ ì¶œë ¥
 		while (fgets(buffer, sizeof(buffer), songList) != NULL) {
 			printf("%d. ", count);
 			printf("%s", buffer);
@@ -444,15 +445,15 @@ void addSongInPli(char pliName[])//ÅØ½ºÆ®ÆÄÀÏÀÇ ÀÌ¸§À» ¹ŞÀ½
 		}
 		fclose(songList);
 
-		memset(buffer, 0, sizeof(buffer));//¹öÆÛ ºñ¿öÁÜ
+		memset(buffer, 0, sizeof(buffer));//ë²„í¼ ë¹„ì›Œì¤Œ
 
-		printf("\nÇÃ·¹ÀÌ¸®½ºÆ®¿¡ Ãß°¡ÇÒ ³ë·¡ ¹øÈ£¸¦ ÀÔ·ÂÇÏ°Å³ª \"°Ë»ö\"À» ÀÔ·ÂÇÏ¼¼¿ä\n");
-		printf("¼ıÀÚ \"0\"À» ÀÔ·Â½Ã ÀÌÀü ÆäÀÌÁö·Î ÀÌµ¿ÇÕ´Ï´Ù. \"°Ë»ö\"À» ÀÔ·Â½Ã ³ë·¡¸¦ °Ë»öÇÏ¿© Ãß°¡ÇÒ ¼ö ÀÖ½À´Ï´Ù.\n\n");
-		printf("¸Ş´º ¼±ÅÃ : ");
+		printf("\ní”Œë ˆì´ë¦¬ìŠ¤íŠ¸ì— ì¶”ê°€í•  ë…¸ë˜ ë²ˆí˜¸ë¥¼ ì…ë ¥í•˜ê±°ë‚˜ \"ê²€ìƒ‰\"ì„ ì…ë ¥í•˜ì„¸ìš”\n");
+		printf("ìˆ«ì \"0\"ì„ ì…ë ¥ì‹œ ì´ì „ í˜ì´ì§€ë¡œ ì´ë™í•©ë‹ˆë‹¤. \"ê²€ìƒ‰\"ì„ ì…ë ¥ì‹œ ë…¸ë˜ë¥¼ ê²€ìƒ‰í•˜ì—¬ ì¶”ê°€í•  ìˆ˜ ìˆìŠµë‹ˆë‹¤.\n\n");
+		printf("ë©”ë‰´ ì„ íƒ : ");
 		scanf("%s", &getMenu);
 		while (getchar() != '\n');
 
-		if (!strcmp(getMenu, "°Ë»ö"))
+		if (!strcmp(getMenu, "ê²€ìƒ‰"))
 		{
 			searchMenuInPli(pliName);
 		}
@@ -466,15 +467,15 @@ void addSongInPli(char pliName[])//ÅØ½ºÆ®ÆÄÀÏÀÇ ÀÌ¸§À» ¹ŞÀ½
 
 			if (endptr == getMenu) {
 				break;
-				printf("º¯È¯ ½ÇÆĞ: ¼ıÀÚ·Î ½ÃÀÛÇÏ´Â ¹®ÀÚ¿­ÀÌ ¾Æ´Õ´Ï´Ù.\n");
+				printf("ë³€í™˜ ì‹¤íŒ¨: ìˆ«ìë¡œ ì‹œì‘í•˜ëŠ” ë¬¸ìì—´ì´ ì•„ë‹™ë‹ˆë‹¤.\n");
 			}
 			else if (*endptr != '\0') {
 				break;
-				printf("º¯È¯ ½ÇÆĞ: ¼ıÀÚ·Î º¯È¯µÈ ÈÄ¿¡ ³²¾ÆÀÖ´Â ¹®ÀÚ¿­: %s\n", endptr);
+				printf("ë³€í™˜ ì‹¤íŒ¨: ìˆ«ìë¡œ ë³€í™˜ëœ í›„ì— ë‚¨ì•„ìˆëŠ” ë¬¸ìì—´: %s\n", endptr);
 			}
 			else {
 				int lineNumber = 0;
-				if (count - 1 < songNum)//ÇöÀç ³ë·¡ ¼öº¸´Ù Å« ¼ıÀÚ¸¦ ¹ŞÀ¸¸é °úÁ¤À» »ı·«ÇØÁØ´Ù.
+				if (count - 1 < songNum)//í˜„ì¬ ë…¸ë˜ ìˆ˜ë³´ë‹¤ í° ìˆ«ìë¥¼ ë°›ìœ¼ë©´ ê³¼ì •ì„ ìƒëµí•´ì¤€ë‹¤.
 					continue;
 				else
 				{
@@ -482,7 +483,7 @@ void addSongInPli(char pliName[])//ÅØ½ºÆ®ÆÄÀÏÀÇ ÀÌ¸§À» ¹ŞÀ½
 					FILE* playlist = fopen(pliName, "a");
 
 					if (playlist == NULL)
-						printf("ÆÄÀÏÀ» ¿­ ¼ö ¾ø½À´Ï´Ù!\n");
+						printf("íŒŒì¼ì„ ì—´ ìˆ˜ ì—†ìŠµë‹ˆë‹¤!\n");
 					while (fgets(buffer, sizeof(buffer), songList) != NULL)
 					{
 						lineNumber++;
@@ -492,10 +493,10 @@ void addSongInPli(char pliName[])//ÅØ½ºÆ®ÆÄÀÏÀÇ ÀÌ¸§À» ¹ŞÀ½
 							fputs("\n", playlist);
 
 							fclose(playlist);
-							FILE* fp = fopen(pliName, "r"); //ÆÄÀÏ ³» Ä¿¼­ÀÇ À§Ä¡¸¦ ÃÊ±âÈ­
-							fileArrange(playlist, pliName); //¹øÈ£¸¦ Á¤·Ä
+							FILE* fp = fopen(pliName, "r"); //íŒŒì¼ ë‚´ ì»¤ì„œì˜ ìœ„ì¹˜ë¥¼ ì´ˆê¸°í™”
+							fileArrange(playlist, pliName); //ë²ˆí˜¸ë¥¼ ì •ë ¬
 
-							break; // Ã£Àº ÈÄ¿¡´Â ´õ ÀÌ»ó ¹İº¹ÇÒ ÇÊ¿ä°¡ ¾øÀ¸¹Ç·Î ¹İº¹¹®À» Á¾·á
+							break; // ì°¾ì€ í›„ì—ëŠ” ë” ì´ìƒ ë°˜ë³µí•  í•„ìš”ê°€ ì—†ìœ¼ë¯€ë¡œ ë°˜ë³µë¬¸ì„ ì¢…ë£Œ
 						}
 					}
 
@@ -509,8 +510,8 @@ void addSongInPli(char pliName[])//ÅØ½ºÆ®ÆÄÀÏÀÇ ÀÌ¸§À» ¹ŞÀ½
 }
 
 
-//ÇÃ·¹ÀÌ¸®½ºÆ®¿¡¼­ ³ë·¡¸¦ »èÁ¦ ->ÇöÀç ÇÃ·¹ÀÌ¸®½ºÆ®ÀÇ file pointer´Â ¿­¸°»óÅÂ
-void deleteSong(char* pliName, char* fileName) //ÀÎÀÚ·Î ¹ŞÀº pliNameÀº ".txt"¸¦ Æ÷ÇÔÇÏÁö ¾ÊÀº Çü½ÄÀÌ´Ù.
+//í”Œë ˆì´ë¦¬ìŠ¤íŠ¸ì—ì„œ ë…¸ë˜ë¥¼ ì‚­ì œ ->í˜„ì¬ í”Œë ˆì´ë¦¬ìŠ¤íŠ¸ì˜ file pointerëŠ” ì—´ë¦°ìƒíƒœ
+void deleteSong(char* pliName, char* fileName) //ì¸ìë¡œ ë°›ì€ pliNameì€ ".txt"ë¥¼ í¬í•¨í•˜ì§€ ì•Šì€ í˜•ì‹ì´ë‹¤.
 {
 	while (1)
 	{
@@ -532,8 +533,8 @@ void deleteSong(char* pliName, char* fileName) //ÀÎÀÚ·Î ¹ŞÀº pliNameÀº ".txt"¸¦ 
 
 		printf("\n%s\n", buffer);
 
-		printf("\n¼ıÀÚ \"0\"À» ÀÔ·Â½Ã ÀÌÀü ÆäÀÌÁö·Î ÀÌµ¿ÇÕ´Ï´Ù.\n");
-		printf("ÇÃ·¹ÀÌ¸®½ºÆ®¿¡¼­ »èÁ¦ÇÒ ³ë·¡¿¡ ÇØ´çÇÏ´Â ¹øÈ£¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä : ");
+		printf("\nìˆ«ì \"0\"ì„ ì…ë ¥ì‹œ ì´ì „ í˜ì´ì§€ë¡œ ì´ë™í•©ë‹ˆë‹¤.\n");
+		printf("í”Œë ˆì´ë¦¬ìŠ¤íŠ¸ì—ì„œ ì‚­ì œí•  ë…¸ë˜ì— í•´ë‹¹í•˜ëŠ” ë²ˆí˜¸ë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš” : ");
 
 		scanf("%s", &getMenu);
 		while (getchar() != '\n');
@@ -562,14 +563,14 @@ void deleteSong(char* pliName, char* fileName) //ÀÎÀÚ·Î ¹ŞÀº pliNameÀº ".txt"¸¦ 
 char* removeSpace(char* str) {
 	char* start = str;
 	char* finish = str + strlen(str) - 1;
-	//ÁÂÃø Á¦°Å
+	//ì¢Œì¸¡ ì œê±°
 	while (*start != '\0') {
 		if ((*start == ' ') || (*start == '\t'))
 			start++;
 		else
 			break;
 	}
-	//¿ìÃø Á¦°Å
+	//ìš°ì¸¡ ì œê±°
 	while (1)
 	{
 		if ((*finish == ' ') || (*finish == '\t'))
