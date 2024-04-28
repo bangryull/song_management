@@ -224,7 +224,7 @@ void addPlaylist()
 	}
 	//공백 입력시 이전 페이지로 이동
 	if (j == count) {
-		printPlaylist();
+		playlistMenu();
 	}
 	//추가할 번호 지정
 	fp = fopen("Playlist_list.txt", "r");
