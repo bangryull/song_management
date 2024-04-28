@@ -1,22 +1,8 @@
-#include "header.h"
-
+﻿#include "header.h"
 
 #define STRING_SIZE 256
 
-struct Song { //구조체
-    char title[STRING_SIZE];    //제목
-    char singer[STRING_SIZE];   //가수
-    char composer[STRING_SIZE]; //작곡가
-    char lyricist[STRING_SIZE]; //작사가
-    char genre[STRING_SIZE];    //장르
-    char playtime[STRING_SIZE]; //재생시간
-    char album[STRING_SIZE];    //앨범명
-    char release[STRING_SIZE];  //앨범출시날짜
-
-};
-
-int main(){
-    SetConsoleOutputCP(CP_UTF8);
+int main() {
     int mode;
     int err = 0;
     while (1)
@@ -43,23 +29,23 @@ int main(){
             break;
 
         case 2: //검색 기능
-
+            searchMenu();
             break;
 
         case 3: //플레이리스트
-
+            //playlistMenu();
             break;
 
         case 4: //종료
-
+            printf("프로그램을 종료합니다\n");
             break;
 
         default: //error
+            //while (getchar() != '\n'); //입력 버터 비우기
             err = 1;
-            while (getchar() != '\n'); //입력 버터 비우기
             break;
         }
     }
-    
+
     return 0;
 }

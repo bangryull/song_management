@@ -7,12 +7,12 @@
       "RelativeMoniker": "D:0:0:{EF3486DD-F2E3-46D7-9983-672AF62A05DA}|song_management\\song_management.vcxproj|solutionrelative:song_management\\song_list.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EF3486DD-F2E3-46D7-9983-672AF62A05DA}|song_management\\song_management.vcxproj|C:\\Users\\wii07\\source\\repos\\song_management\\code\\song_management\\playlist.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{EF3486DD-F2E3-46D7-9983-672AF62A05DA}|song_management\\song_management.vcxproj|solutionrelative:song_management\\playlist.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{EF3486DD-F2E3-46D7-9983-672AF62A05DA}|song_management\\song_management.vcxproj|C:\\Users\\wii07\\source\\repos\\song_management\\code\\song_management\\song.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{EF3486DD-F2E3-46D7-9983-672AF62A05DA}|song_management\\song_management.vcxproj|solutionrelative:song_management\\song.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EF3486DD-F2E3-46D7-9983-672AF62A05DA}|song_management\\song_management.vcxproj|C:\\Users\\wii07\\source\\repos\\song_management\\code\\song_management\\search.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{EF3486DD-F2E3-46D7-9983-672AF62A05DA}|song_management\\song_management.vcxproj|solutionrelative:song_management\\search.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{EF3486DD-F2E3-46D7-9983-672AF62A05DA}|song_management\\song_management.vcxproj|C:\\Users\\wii07\\source\\repos\\song_management\\code\\song_management\\song_list.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
@@ -34,58 +34,19 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "song_list.txt",
-              "DocumentMoniker": "C:\\Users\\wii07\\source\\repos\\song_management\\code\\song_management\\song_list.txt",
-              "RelativeDocumentMoniker": "song_management\\song_list.txt",
-              "ToolTip": "C:\\Users\\wii07\\source\\repos\\song_management\\code\\song_management\\song_list.txt",
-              "RelativeToolTip": "song_management\\song_list.txt",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
-              "WhenOpened": "2024-04-15T03:54:42.821Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "song_list.c",
-              "DocumentMoniker": "C:\\Users\\wii07\\source\\repos\\song_management\\code\\song_management\\song_list.c",
-              "RelativeDocumentMoniker": "song_management\\song_list.c",
-              "ToolTip": "C:\\Users\\wii07\\source\\repos\\song_management\\code\\song_management\\song_list.c",
-              "RelativeToolTip": "song_management\\song_list.c",
-              "ViewState": "AQIAADAAAAAAAAAAAAAAAEEAAAANAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
-              "WhenOpened": "2024-04-15T03:41:03.838Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "song.c",
-              "DocumentMoniker": "C:\\Users\\wii07\\source\\repos\\song_management\\code\\song_management\\song.c",
-              "RelativeDocumentMoniker": "song_management\\song.c",
-              "ToolTip": "C:\\Users\\wii07\\source\\repos\\song_management\\code\\song_management\\song.c",
-              "RelativeToolTip": "song_management\\song.c",
-              "ViewState": "AQIAAA8AAAAAAAAAAAAAADoAAAAyAAAA",
+              "Title": "search.c",
+              "DocumentMoniker": "C:\\Users\\wii07\\source\\repos\\song_management\\code\\song_management\\search.c",
+              "RelativeDocumentMoniker": "song_management\\search.c",
+              "ToolTip": "C:\\Users\\wii07\\source\\repos\\song_management\\code\\song_management\\search.c",
+              "RelativeToolTip": "song_management\\search.c",
+              "ViewState": "AQIAAMkAAAAAAAAAAADwvwAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
-              "WhenOpened": "2024-04-15T02:02:47.49Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "playlist.c",
-              "DocumentMoniker": "C:\\Users\\wii07\\source\\repos\\song_management\\code\\song_management\\playlist.c",
-              "RelativeDocumentMoniker": "song_management\\playlist.c",
-              "ToolTip": "C:\\Users\\wii07\\source\\repos\\song_management\\code\\song_management\\playlist.c",
-              "RelativeToolTip": "song_management\\playlist.c",
-              "ViewState": "AQIAAC0AAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
-              "WhenOpened": "2024-04-15T03:41:00.636Z",
+              "WhenOpened": "2024-04-18T04:50:21.205Z",
               "EditorCaption": ""
             },
             {
@@ -98,7 +59,45 @@
               "RelativeToolTip": "song_management\\\uD1F4\uADFC\uAE38 \uD50C\uB808\uC774\uB9AC\uC2A4\uD2B8.txt",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
-              "WhenOpened": "2024-04-15T03:54:41.642Z",
+              "WhenOpened": "2024-04-18T04:27:45.37Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "song_list.c",
+              "DocumentMoniker": "C:\\Users\\wii07\\source\\repos\\song_management\\code\\song_management\\song_list.c",
+              "RelativeDocumentMoniker": "song_management\\song_list.c",
+              "ToolTip": "C:\\Users\\wii07\\source\\repos\\song_management\\code\\song_management\\song_list.c",
+              "RelativeToolTip": "song_management\\song_list.c",
+              "ViewState": "AQIAAFoAAAAAAAAAAAAAAGsAAAAPAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2024-04-15T03:41:03.838Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "song_list.txt",
+              "DocumentMoniker": "C:\\Users\\wii07\\source\\repos\\song_management\\code\\song_management\\song_list.txt",
+              "RelativeDocumentMoniker": "song_management\\song_list.txt",
+              "ToolTip": "C:\\Users\\wii07\\source\\repos\\song_management\\code\\song_management\\song_list.txt",
+              "RelativeToolTip": "song_management\\song_list.txt",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAEAAAAvAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2024-04-15T03:54:42.821Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "song.c",
+              "DocumentMoniker": "C:\\Users\\wii07\\source\\repos\\song_management\\code\\song_management\\song.c",
+              "RelativeDocumentMoniker": "song_management\\song.c",
+              "ToolTip": "C:\\Users\\wii07\\source\\repos\\song_management\\code\\song_management\\song.c",
+              "RelativeToolTip": "song_management\\song.c",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAAsAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2024-04-15T02:02:47.49Z",
               "EditorCaption": ""
             },
             {
@@ -109,14 +108,9 @@
               "RelativeDocumentMoniker": "song_management\\header.h",
               "ToolTip": "C:\\Users\\wii07\\source\\repos\\song_management\\code\\song_management\\header.h",
               "RelativeToolTip": "song_management\\header.h",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAXAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-04-15T02:05:13.247Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+              "WhenOpened": "2024-04-15T02:05:13.247Z"
             }
           ]
         }
