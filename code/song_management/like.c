@@ -4,7 +4,7 @@ void push_like();
 void like_song_print();
 
 int is_valid_number(const char* str) {
-    // ¹®ÀÚ¿­ÀÇ °¢ ¹®ÀÚ°¡ ¼ıÀÚÀÎÁö È®ÀÎ
+    // ë¬¸ìì—´ì˜ ê° ë¬¸ìê°€ ìˆ«ìì¸ì§€ í™•ì¸
     for (int i = 0; str[i] != '\0'; i++) {
         if (!isdigit(str[i]) && str[i] != '\n') {
             return 0;
@@ -19,62 +19,61 @@ void like_menu() {
     {
         if (err == 1)
         {
-            printf("ÇØ´ç ¸Ş´º´Â Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù. ´Ù½Ã ¼±ÅÃÇÏ¼¼¿ä.\n\n");
-            err = 0;
+            printf("í•´ë‹¹ ë©”ë‰´ëŠ” ì¡´ì¬í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤. ë‹¤ì‹œ ì„ íƒí•˜ì„¸ìš”.\n\n");
+            err = 0; // ì—ëŸ¬ ë©”ì‹œì§€ë¥¼ ì¶œë ¥í•˜ê³  ë‚˜ì„œ errë¥¼ ì´ˆê¸°í™”í•©ë‹ˆë‹¤.
         }
         else {
-            printf("\nÁÁ¾Æ¿ä ¸Ş´º¸¦ ¼±ÅÃÇÏ¼Ì½À´Ï´Ù.\n");
-            printf("¿øÇÏ´Â ¸Ş´º¸¦ ¼±ÅÃÇÏ¼¼¿ä.\n\n");
+            printf("\nì¢‹ì•„ìš” ë©”ë‰´ë¥¼ ì„ íƒí•˜ì…¨ìŠµë‹ˆë‹¤.\n");
+            printf("ì›í•˜ëŠ” ë©”ë‰´ë¥¼ ì„ íƒí•˜ì„¸ìš”.\n\n");
         }
-        printf("1. ÁÁ¾Æ¿ä ´©¸£±â\n");
-        printf("2. Áñ°ÜÃ£±â - ÁÁ¾Æ¿ä ÇÑ ³ë·¡ Ãâ·Â\n");
-        printf("0. µÚ·Î°¡±â\n\n");
+        printf("1. ì¢‹ì•„ìš” ëˆ„ë¥´ê¸°\n");
+        printf("2. ì¦ê²¨ì°¾ê¸° - ì¢‹ì•„ìš” í•œ ë…¸ë˜ ì¶œë ¥\n");
+        printf("0. ë’¤ë¡œê°€ê¸°\n\n");
 
         char input[STRING_SIZE];
-        int number; //¸Ş´º ¼±ÅÃÀÌ ¿Ã¹Ù¸¥ ÀÔ·ÂÀÏ ¶§ ¼ıÀÚ ³ÖÀ» º¯¼ö
+        int number; //ë©”ë‰´ ì„ íƒì´ ì˜¬ë°”ë¥¸ ì…ë ¥ì¼ ë•Œ ìˆ«ì ë„£ì„ ë³€ìˆ˜
 
-        printf("¸Ş´º ¼±ÅÃ: ");
-        while (fgets(input, sizeof(input), stdin)) {
-            // °³Çà¹®ÀÚ Á¦°Å
+        printf("ë©”ë‰´ ì„ íƒ: ");
+        if (fgets(input, sizeof(input), stdin)) {
+            // ê°œí–‰ë¬¸ì ì œê±°
             input[strcspn(input, "\n")] = '\0';
 
-            if (is_valid_number(input)) { //¸ğµç ÀÔ·ÂÀÌ ¼ıÀÚ·Î ÀÌ·ç¾îÁ® ÀÖ´ÂÁö È®ÀÎ
+            if (is_valid_number(input)) { //ëª¨ë“  ì…ë ¥ì´ ìˆ«ìë¡œ ì´ë£¨ì–´ì ¸ ìˆëŠ”ì§€ í™•ì¸
                 number = atoi(input);
-                break;
+                switch (number)
+                {
+                case 1:
+                    push_like();
+                    break;
+                case 2:
+                    like_song_print();
+                    break;
+                case 0:
+                    return;
+                default: // ìœ íš¨í•˜ì§€ ì•Šì€ ë²ˆí˜¸ê°€ ì…ë ¥ëœ ê²½ìš°
+                    err = 1;
+                    break;
+                }
             }
-            else { //¼ıÀÚ·Î¸¸ ÀÌ·ç¾îÁ® ÀÖÁö ¾ÊÀ¸¸é
+            else { //ìˆ«ìë¡œë§Œ ì´ë£¨ì–´ì ¸ ìˆì§€ ì•Šìœ¼ë©´
                 err = 1;
-                continue;
             }
-        }
-
-        switch (number)
-        {
-        case 1:
-            push_like();
-            break;
-        case 2:
-            like_song_print();
-            break;
-        case 0:
-            return 0;
         }
     }
-    return 0;
 }
 
-// ¼ıÀÚÀÎÁö È®ÀÎÇÏ´Â ÇÔ¼ö
+// ìˆ«ìì¸ì§€ í™•ì¸í•˜ëŠ” í•¨ìˆ˜
 int is_digit(char ch) {
     return ch >= '0' && ch <= '9';
 }
 
-// ÁÙÀÇ ¸¶Áö¸· ¼ıÀÚ¸¦ 1 ¿Ã¸®´Â ÇÔ¼ö
+// ì¤„ì˜ ë§ˆì§€ë§‰ ìˆ«ìë¥¼ 1 ì˜¬ë¦¬ëŠ” í•¨ìˆ˜
 void like_plus(char* line) {
     int len = strlen(line);
-    // ¼ıÀÚ¸¦ Ã£±â À§ÇØ µÚ¿¡¼­ºÎÅÍ Å½»ö
+    // ìˆ«ìë¥¼ ì°¾ê¸° ìœ„í•´ ë’¤ì—ì„œë¶€í„° íƒìƒ‰
     for (int i = len - 1; i >= 0; i--) {
         if (is_digit(line[i])) {
-            // ¼ıÀÚ¸¦ ¹®ÀÚ¿­¿¡¼­ ¼ıÀÚ·Î º¯È¯
+            // ìˆ«ìë¥¼ ë¬¸ìì—´ì—ì„œ ìˆ«ìë¡œ ë³€í™˜
             int num_start = i;
             while (i >= 0 && is_digit(line[i])) {
                 i--;
@@ -85,15 +84,15 @@ void like_plus(char* line) {
             strncpy(number_str, &line[i], num_start - i + 1);
             number_str[num_start - i + 1] = '\0';
 
-            // ¼ıÀÚ¸¦ 1 Áõ°¡
+            // ìˆ«ìë¥¼ 1 ì¦ê°€
             int number = atoi(number_str);
             number += 1;
 
-            // ¼ıÀÚ¸¦ ¹®ÀÚ¿­·Î ´Ù½Ã º¯È¯
+            // ìˆ«ìë¥¼ ë¬¸ìì—´ë¡œ ë‹¤ì‹œ ë³€í™˜
             char new_number_str[STRING_SIZE];
             sprintf(new_number_str, "%d", number);
 
-            // ¿ø·¡ ¼ıÀÚ¸¦ »õ·Î¿î ¼ıÀÚ·Î ±³Ã¼
+            // ì›ë˜ ìˆ«ìë¥¼ ìƒˆë¡œìš´ ìˆ«ìë¡œ êµì²´
             strncpy(&line[i], new_number_str, strlen(new_number_str));
             line[i + strlen(new_number_str)] = '\n';
             break;
@@ -104,14 +103,14 @@ void like_plus(char* line) {
 void like_song(const char* filename, int target_line) {
     FILE* file = fopen(filename, "r");
     if (!file) {
-        perror("ÆÄÀÏÀ» ¿­ ¼ö ¾ø½À´Ï´Ù");
+        perror("íŒŒì¼ì„ ì—´ ìˆ˜ ì—†ìŠµë‹ˆë‹¤");
         exit(EXIT_FAILURE);
     }
 
-    // ÀÓ½Ã ÆÄÀÏÀ» »ı¼ºÇÏ¿© ¼öÁ¤µÈ ³»¿ëÀ» ¾µ ¿¹Á¤
+    // ì„ì‹œ íŒŒì¼ì„ ìƒì„±í•˜ì—¬ ìˆ˜ì •ëœ ë‚´ìš©ì„ ì“¸ ì˜ˆì •
     FILE* temp_file = fopen("temp.txt", "w");
     if (!temp_file) {
-        perror("ÀÓ½Ã ÆÄÀÏÀ» ¿­ ¼ö ¾ø½À´Ï´Ù");
+        perror("ì„ì‹œ íŒŒì¼ì„ ì—´ ìˆ˜ ì—†ìŠµë‹ˆë‹¤");
         fclose(file);
         exit(EXIT_FAILURE);
     }
@@ -121,7 +120,7 @@ void like_song(const char* filename, int target_line) {
 
     while (fgets(line, sizeof(line), file)) {
         if (current_line == target_line) {
-            // ÁÙÀÇ ¸¶Áö¸· ¼ıÀÚ¸¦ 1 Áõ°¡
+            // ì¤„ì˜ ë§ˆì§€ë§‰ ìˆ«ìë¥¼ 1 ì¦ê°€
             like_plus(line);
         }
         fputs(line, temp_file);
@@ -131,62 +130,62 @@ void like_song(const char* filename, int target_line) {
     fclose(file);
     fclose(temp_file);
 
-    // ¿øº» ÆÄÀÏÀ» µ¤¾î¾²±â
+    // ì›ë³¸ íŒŒì¼ì„ ë®ì–´ì“°ê¸°
     if (remove(filename) != 0) {
-        perror("¿øº» ÆÄÀÏÀ» »èÁ¦ÇÒ ¼ö ¾ø½À´Ï´Ù");
+        perror("ì›ë³¸ íŒŒì¼ì„ ì‚­ì œí•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤");
         exit(EXIT_FAILURE);
     }
 
     if (rename("temp.txt", filename) != 0) {
-        perror("ÀÓ½Ã ÆÄÀÏÀ» ¿øº» ÆÄÀÏ·Î ÀÌ¸§À» º¯°æÇÒ ¼ö ¾ø½À´Ï´Ù");
+        perror("ì„ì‹œ íŒŒì¼ì„ ì›ë³¸ íŒŒì¼ë¡œ ì´ë¦„ì„ ë³€ê²½í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤");
         exit(EXIT_FAILURE);
     }
 }
 
 void push_like()
 {
-    printf("\nÁÁ¾Æ¿ä¸¦ ´©¸¦ ³ë·¡¸¦ ¼±ÅÃÇÏ¼¼¿ä.");
-    printf("\n\nÁ¦¸ñ / °¡¼ö / ÀÛ°î°¡ / ÀÛ»ç°¡ / Àå¸£ / Àç»ı½Ã°£ / ¾Ù¹ü¸í / ¾Ù¹ü Ãâ½Ã ³¯Â¥ / ÁÁ¾Æ¿ä\n\n");
+    printf("\nì¢‹ì•„ìš”ë¥¼ ëˆ„ë¥¼ ë…¸ë˜ë¥¼ ì„ íƒí•˜ì„¸ìš”.");
+    printf("\n\nì œëª© / ê°€ìˆ˜ / ì‘ê³¡ê°€ / ì‘ì‚¬ê°€ / ì¥ë¥´ / ì¬ìƒì‹œê°„ / ì•¨ë²”ëª… / ì•¨ë²” ì¶œì‹œ ë‚ ì§œ / ì¢‹ì•„ìš”\n\n");
     FILE* fp;
-    fp = fopen("song_list.txt", "r"); //ÅØ½ºÆ® ÆÄÀÏ ºÒ·¯¿À±â
-    char name[STRING_SIZE]; //Á¦¸ñ
-    char singer[STRING_SIZE]; //°¡¼ö
-    char song_writer[STRING_SIZE]; //ÀÛ°î°¡
-    char lylic_writer[STRING_SIZE]; //ÀÛ»ç°¡
-    char genre[STRING_SIZE]; //Àå¸£
-    char playtime[STRING_SIZE]; //Àç»ı½Ã°£
-    char album_name[STRING_SIZE]; //¾Ù¹ü¸í
-    char album_time[STRING_SIZE]; //¾Ù¹ü Ãâ½Ã ³¯Â¥
+    fp = fopen("song_list.txt", "r"); //í…ìŠ¤íŠ¸ íŒŒì¼ ë¶ˆëŸ¬ì˜¤ê¸°
+    char name[STRING_SIZE]; //ì œëª©
+    char singer[STRING_SIZE]; //ê°€ìˆ˜
+    char song_writer[STRING_SIZE]; //ì‘ê³¡ê°€
+    char lylic_writer[STRING_SIZE]; //ì‘ì‚¬ê°€
+    char genre[STRING_SIZE]; //ì¥ë¥´
+    char playtime[STRING_SIZE]; //ì¬ìƒì‹œê°„
+    char album_name[STRING_SIZE]; //ì•¨ë²”ëª…
+    char album_time[STRING_SIZE]; //ì•¨ë²” ì¶œì‹œ ë‚ ì§œ
 
     int num = 1;
 
-    char song[STRING_SIZE * 8]; //ºÒ·¯¿Ã ÇÑ ÁÙ
-    while (fgets(song, sizeof(song), fp) != NULL) //ÇÑ ÁÙ ¾¿ ºÒ·¯¿À±â
+    char song[STRING_SIZE * 8]; //ë¶ˆëŸ¬ì˜¬ í•œ ì¤„
+    while (fgets(song, sizeof(song), fp) != NULL) //í•œ ì¤„ ì”© ë¶ˆëŸ¬ì˜¤ê¸°
     {
-        sscanf(song, "%[^\t]\t%[^\t]\t%[^\t]\t%[^\t]\t%[^\t]\t%[^\t]\t%[^\t]\t%[^\t\n]", name, singer, song_writer, lylic_writer, genre, playtime, album_name, album_time); //ÅÇÅ°¸¦ ±¸ºĞÀÚ·Î ÇÏ³ª¾¿ ºÒ·¯¿À±â
-        printf("%d. %s / ",num, name); //³ë·¡ ¹øÈ£¿Í Á¦¸ñ Ãâ·Â
+        sscanf(song, "%[^\t]\t%[^\t]\t%[^\t]\t%[^\t]\t%[^\t]\t%[^\t]\t%[^\t]\t%[^\t\n]", name, singer, song_writer, lylic_writer, genre, playtime, album_name, album_time); //íƒ­í‚¤ë¥¼ êµ¬ë¶„ìë¡œ í•˜ë‚˜ì”© ë¶ˆëŸ¬ì˜¤ê¸°
+        printf("%d. %s / ",num, name); //ë…¸ë˜ ë²ˆí˜¸ì™€ ì œëª© ì¶œë ¥
         int size = 0;
 
-        //°¡¼ö Ãâ·Â
+        //ê°€ìˆ˜ ì¶œë ¥
         while (1)
         {
-            if (singer[size] == '|') //ÀÎ¹° ±¸ºĞÀÚ¸¦ ¸¸³µÀ» ¶§
+            if (singer[size] == '|') //ì¸ë¬¼ êµ¬ë¶„ìë¥¼ ë§Œë‚¬ì„ ë•Œ
             {
-                while (1) //¶ç¾î¾²±â¸¦ ¸¸³¯ ¶§ ¶Ç´Â ³¡³¯ ¶§ ±îÁö °Ç³Ê¶Ù±â
+                while (1) //ë„ì–´ì“°ê¸°ë¥¼ ë§Œë‚  ë•Œ ë˜ëŠ” ëë‚  ë•Œ ê¹Œì§€ ê±´ë„ˆë›°ê¸°
                 {
                     size++;
-                    if (singer[size] == NULL) //¹®ÀÚ¿­ÀÌ ³¡³µÀ» ¶§
+                    if (singer[size] == NULL) //ë¬¸ìì—´ì´ ëë‚¬ì„ ë•Œ
                     {
                         break;
                     }
-                    else if (singer[size] == ' ') //¶ç¾î¾²±â¸¦ ¸¸³µÀ» ¶§
+                    else if (singer[size] == ' ') //ë„ì–´ì“°ê¸°ë¥¼ ë§Œë‚¬ì„ ë•Œ
                     {
-                        size = size + 1; //´ÙÀ½ ÀÎ¹°ÀÇ ÀÌ¸§À¸·Î ÀÌµ¿
+                        size = size + 1; //ë‹¤ìŒ ì¸ë¬¼ì˜ ì´ë¦„ìœ¼ë¡œ ì´ë™
                         break;
                     }
                 }
             }
-            if (singer[size] == NULL) //¹®ÀÚ¿­ÀÌ ³¡³µÀ» ¶§
+            if (singer[size] == NULL) //ë¬¸ìì—´ì´ ëë‚¬ì„ ë•Œ
             {
                 printf(" / ");
                 break;
@@ -196,26 +195,26 @@ void push_like()
         }
         size = 0;
 
-        //ÀÛ°î°¡ Ãâ·Â
+        //ì‘ê³¡ê°€ ì¶œë ¥
         while (1)
         {
-            if (song_writer[size] == '|') //ÀÎ¹° ±¸ºĞÀÚ¸¦ ¸¸³µÀ» ¶§
+            if (song_writer[size] == '|') //ì¸ë¬¼ êµ¬ë¶„ìë¥¼ ë§Œë‚¬ì„ ë•Œ
             {
-                while (1) //¶ç¾î¾²±â¸¦ ¸¸³¯ ¶§ ¶Ç´Â ³¡³¯ ¶§ ±îÁö °Ç³Ê¶Ù±â
+                while (1) //ë„ì–´ì“°ê¸°ë¥¼ ë§Œë‚  ë•Œ ë˜ëŠ” ëë‚  ë•Œ ê¹Œì§€ ê±´ë„ˆë›°ê¸°
                 {
                     size++;
-                    if (song_writer[size] == NULL) //¹®ÀÚ¿­ÀÌ ³¡³µÀ» ¶§
+                    if (song_writer[size] == NULL) //ë¬¸ìì—´ì´ ëë‚¬ì„ ë•Œ
                     {
                         break;
                     }
-                    else if (song_writer[size] == ' ') //¶ç¾î¾²±â¸¦ ¸¸³µÀ» ¶§
+                    else if (song_writer[size] == ' ') //ë„ì–´ì“°ê¸°ë¥¼ ë§Œë‚¬ì„ ë•Œ
                     {
                         size = size + 1;
                         break;
                     }
                 }
             }
-            if (song_writer[size] == NULL) //¹®ÀÚ¿­ÀÌ ³¡³µÀ» ¶§
+            if (song_writer[size] == NULL) //ë¬¸ìì—´ì´ ëë‚¬ì„ ë•Œ
             {
                 printf(" / ");
                 break;
@@ -225,26 +224,26 @@ void push_like()
         }
         size = 0;
 
-        //ÀÛ»ç°¡ Ãâ·Â
+        //ì‘ì‚¬ê°€ ì¶œë ¥
         while (1)
         {
-            if (lylic_writer[size] == '|') //ÀÎ¹° ±¸ºĞÀÚ¸¦ ¸¸³µÀ» ¶§
+            if (lylic_writer[size] == '|') //ì¸ë¬¼ êµ¬ë¶„ìë¥¼ ë§Œë‚¬ì„ ë•Œ
             {
-                while (1) //¶ç¾î¾²±â¸¦ ¸¸³¯ ¶§ ¶Ç´Â ³¡³¯ ¶§ ±îÁö °Ç³Ê¶Ù±â
+                while (1) //ë„ì–´ì“°ê¸°ë¥¼ ë§Œë‚  ë•Œ ë˜ëŠ” ëë‚  ë•Œ ê¹Œì§€ ê±´ë„ˆë›°ê¸°
                 {
                     size++;
-                    if (lylic_writer[size] == NULL) //¹®ÀÚ¿­ÀÌ ³¡³µÀ» ¶§
+                    if (lylic_writer[size] == NULL) //ë¬¸ìì—´ì´ ëë‚¬ì„ ë•Œ
                     {
                         break;
                     }
-                    else if (lylic_writer[size] == ' ') //¶ç¾î¾²±â¸¦ ¸¸³µÀ» ¶§
+                    else if (lylic_writer[size] == ' ') //ë„ì–´ì“°ê¸°ë¥¼ ë§Œë‚¬ì„ ë•Œ
                     {
                         size = size + 1;
                         break;
                     }
                 }
             }
-            if (lylic_writer[size] == NULL) //¹®ÀÚ¿­ÀÌ ³¡³µÀ» ¶§
+            if (lylic_writer[size] == NULL) //ë¬¸ìì—´ì´ ëë‚¬ì„ ë•Œ
             {
                 printf(" / ");
                 break;
@@ -253,7 +252,7 @@ void push_like()
             size++;
         }
 
-        int k = strlen(name) + strlen(singer) + strlen(song_writer) + strlen(lylic_writer) + 4; //°ø¶õ ¿¹¿Ü Ã³¸®
+        int k = strlen(name) + strlen(singer) + strlen(song_writer) + strlen(lylic_writer) + 4; //ê³µë€ ì˜ˆì™¸ ì²˜ë¦¬
         for (k; k < strlen(song); k++) {
             if (song[k] == '\t')
                 printf(" / ");
@@ -262,57 +261,57 @@ void push_like()
         }
         num++;
     }
-    fclose(fp); //³ë·¡ Ãâ·Â ³¡
+    fclose(fp); //ë…¸ë˜ ì¶œë ¥ ë
 
-    printf("\n\n¹øÈ£¸¦ ÀÔ·ÂÇÏ¼¼¿ä :");
+    printf("\n\në²ˆí˜¸ë¥¼ ì…ë ¥í•˜ì„¸ìš” :");
     char input[STRING_SIZE];
-    int number; //¸Ş´º ¼±ÅÃÀÌ ¿Ã¹Ù¸¥ ÀÔ·ÂÀÏ ¶§ ¼ıÀÚ ³ÖÀ» º¯¼ö
+    int number; //ë©”ë‰´ ì„ íƒì´ ì˜¬ë°”ë¥¸ ì…ë ¥ì¼ ë•Œ ìˆ«ì ë„£ì„ ë³€ìˆ˜
 
     while (fgets(input, sizeof(input), stdin)) {
-        // °³Çà¹®ÀÚ Á¦°Å
+        // ê°œí–‰ë¬¸ì ì œê±°
         input[strcspn(input, "\n")] = '\0';
 
-        if (is_valid_number(input)) { //¸ğµç ÀÔ·ÂÀÌ ¼ıÀÚ·Î ÀÌ·ç¾îÁ® ÀÖ´ÂÁö È®ÀÎ
+        if (is_valid_number(input)) { //ëª¨ë“  ì…ë ¥ì´ ìˆ«ìë¡œ ì´ë£¨ì–´ì ¸ ìˆëŠ”ì§€ í™•ì¸
             number = atoi(input);
             break;
         }
-        else { //¼ıÀÚ·Î¸¸ ÀÌ·ç¾îÁ® ÀÖÁö ¾ÊÀ¸¸é
-            printf("Àß¸øµÈ ³ë·¡ÀÇ ¹øÈ£ÀÔ´Ï´Ù.\n");
+        else { //ìˆ«ìë¡œë§Œ ì´ë£¨ì–´ì ¸ ìˆì§€ ì•Šìœ¼ë©´
+            printf("ì˜ëª»ëœ ë…¸ë˜ì˜ ë²ˆí˜¸ì…ë‹ˆë‹¤.\n");
             return 0;
         }
     }
 
     const char* filename = "song_list.txt";
     like_song(filename, number);
-    printf("%sÀÇ ÁÁ¾Æ¿ä°¡ 1 Áõ°¡ Çß½À´Ï´Ù.\n", name);
+    printf("%sì˜ ì¢‹ì•„ìš”ê°€ 1 ì¦ê°€ í–ˆìŠµë‹ˆë‹¤.\n", name);
 
     return 0;
 }
 
-// °¢ ÁÙÀÇ ¸¶Áö¸· ¼ıÀÚ¸¦ ÃßÃâÇÏ´Â ÇÔ¼ö
+// ê° ì¤„ì˜ ë§ˆì§€ë§‰ ìˆ«ìë¥¼ ì¶”ì¶œí•˜ëŠ” í•¨ìˆ˜
 int getLastNumber(char* line) {
     int len = strlen(line);
-    // ¼ıÀÚ¸¦ Ã£±â À§ÇØ µÚ¿¡¼­ºÎÅÍ Å½»ö
+    // ìˆ«ìë¥¼ ì°¾ê¸° ìœ„í•´ ë’¤ì—ì„œë¶€í„° íƒìƒ‰
     for (int i = len - 1; i >= 0; i--) {
         if (is_digit(line[i])) {
-            // ¼ıÀÚ¸¦ ¹®ÀÚ¿­¿¡¼­ ¼ıÀÚ·Î º¯È¯
+            // ìˆ«ìë¥¼ ë¬¸ìì—´ì—ì„œ ìˆ«ìë¡œ ë³€í™˜
             int num_start = i;
             while (i >= 0 && is_digit(line[i])) {
                 i--;
             }
             i++;
 
-            char number_str[STRING_SIZE]; //¼ıÀÚ¸¦ ÀúÀåÇÒ char º¯¼ö
+            char number_str[STRING_SIZE]; //ìˆ«ìë¥¼ ì €ì¥í•  char ë³€ìˆ˜
             strncpy(number_str, &line[i], num_start - i + 1);
             number_str[num_start - i + 1] = '\0';
 
-            int number = atoi(number_str); //¼ıÀÚ¸¦ intÇüÀ¸·Î º¯È¯
-            return number; //¸¶Áö¸· ¼ıÀÚ ¸®ÅÏ
+            int number = atoi(number_str); //ìˆ«ìë¥¼ intí˜•ìœ¼ë¡œ ë³€í™˜
+            return number; //ë§ˆì§€ë§‰ ìˆ«ì ë¦¬í„´
         }
     }
 }
 
-int compare(const void* a, const void* b) { //qsort()¸¦ »ç¿ëÇØ ³»¸²Â÷¼øÀ¸·Î Á¤·ÄÇÒ ¶§ »ç¿ëÇÒ ºñ±³ ÇÔ¼ö
+int compare(const void* a, const void* b) { //qsort()ë¥¼ ì‚¬ìš©í•´ ë‚´ë¦¼ì°¨ìˆœìœ¼ë¡œ ì •ë ¬í•  ë•Œ ì‚¬ìš©í•  ë¹„êµ í•¨ìˆ˜
     int int_a = *(int*)a;
     int int_b = *(int*)b;
 
@@ -321,88 +320,88 @@ int compare(const void* a, const void* b) { //qsort()¸¦ »ç¿ëÇØ ³»¸²Â÷¼øÀ¸·Î Á¤·Ä
     else return 0;
 }
 
-void like_song_print() //ÁÁ¾Æ¿ä ¸ñ·Ï Ãâ·Â
+void like_song_print() //ì¢‹ì•„ìš” ëª©ë¡ ì¶œë ¥
 {
-    printf("\n³» Áñ°ÜÃ£±â\n\n");
-    printf("Á¦¸ñ / °¡¼ö / ÀÛ°î°¡ / ÀÛ»ç°¡ / Àå¸£ / Àç»ı½Ã°£ / ¾Ù¹ü¸í / ¾Ù¹üÃâ½Ã³¯Â¥ / ÁÁ¾Æ¿ä\n\n");
+    printf("\në‚´ ì¦ê²¨ì°¾ê¸°\n\n");
+    printf("ì œëª© / ê°€ìˆ˜ / ì‘ê³¡ê°€ / ì‘ì‚¬ê°€ / ì¥ë¥´ / ì¬ìƒì‹œê°„ / ì•¨ë²”ëª… / ì•¨ë²”ì¶œì‹œë‚ ì§œ / ì¢‹ì•„ìš”\n\n");
 
-    int last_numbers[STRING_SIZE] = { 0 }; //ÁÁ¾Æ¿ä ¼ıÀÚµéÀ» ÀúÀåÇÒ ¹è¿­, Áßº¹ÀÌ ¾øÀÌ ÀúÀåµÈ´Ù.
-    int number_count = 0; //¹è¿­¿¡ µé¾î°£ ¼ıÀÚ °³¼ö
-    char line[STRING_SIZE * 8]; //ÇÑ ÁÙ¾¿ ÀúÀåÇÒ ¹è¿­
+    int last_numbers[STRING_SIZE] = { 0 }; //ì¢‹ì•„ìš” ìˆ«ìë“¤ì„ ì €ì¥í•  ë°°ì—´, ì¤‘ë³µì´ ì—†ì´ ì €ì¥ëœë‹¤.
+    int number_count = 0; //ë°°ì—´ì— ë“¤ì–´ê°„ ìˆ«ì ê°œìˆ˜
+    char line[STRING_SIZE * 8]; //í•œ ì¤„ì”© ì €ì¥í•  ë°°ì—´
 
-    // ÆÄÀÏÀ» ÀĞ¾î¿È
+    // íŒŒì¼ì„ ì½ì–´ì˜´
     FILE* file = fopen("song_list.txt", "r");
 
     while (fgets(line, sizeof(line), file) != NULL)
     {
-        int last = getLastNumber(line); //ÁÁ¾Æ¿ä ¼ıÀÚ¸¦ ÀÓ½Ã ÀúÀå
-        if (last != 0) //ÁÁ¾Æ¿ä°¡ 0ÀÌ ¾Æ´Ï¸é
+        int last = getLastNumber(line); //ì¢‹ì•„ìš” ìˆ«ìë¥¼ ì„ì‹œ ì €ì¥
+        if (last != 0) //ì¢‹ì•„ìš”ê°€ 0ì´ ì•„ë‹ˆë©´
         {
             int k = 0;
-            int exist = 0; //Áßº¹ÀÌ ÀÖ´ÂÁö °Ë»çÇÏ´Â º¯¼ö
+            int exist = 0; //ì¤‘ë³µì´ ìˆëŠ”ì§€ ê²€ì‚¬í•˜ëŠ” ë³€ìˆ˜
             while (1)
             {
-                if (k > number_count) //Áßº¹ÀÌ ¾øÀ¸¸é
+                if (k > number_count) //ì¤‘ë³µì´ ì—†ìœ¼ë©´
                     break;
-                else if (last_numbers[k] == last) //Áßº¹ÀÌ ÀÖÀ½
+                else if (last_numbers[k] == last) //ì¤‘ë³µì´ ìˆìŒ
                 {
-                    exist = 1; //Á¸ÀçÇÑ´Ù°í ¾Ë·ÁÁÜ
+                    exist = 1; //ì¡´ì¬í•œë‹¤ê³  ì•Œë ¤ì¤Œ
                     break;
                 }
                 k++;
             }
-            if (exist == 0) //Áßº¹ÀÌ ¾ø¾î¼­ exist°¡ 0ÀÌ¸é 
+            if (exist == 0) //ì¤‘ë³µì´ ì—†ì–´ì„œ existê°€ 0ì´ë©´ 
             {
-                last_numbers[number_count] = last; //¹è¿­¿¡ ÁÁ¾Æ¿ä ¼ıÀÚ »ğÀÔ
-                number_count++; //¹è¿­ Å©±â Áõ°¡
+                last_numbers[number_count] = last; //ë°°ì—´ì— ì¢‹ì•„ìš” ìˆ«ì ì‚½ì…
+                number_count++; //ë°°ì—´ í¬ê¸° ì¦ê°€
             }
         }
     }
     fclose(file);
 
-    qsort(last_numbers, number_count, sizeof(int), compare); //ÁÁ¾Æ¿ä ¼ıÀÚ°¡ µé¾î°£ ¹è¿­À» ³»¸²Â÷¼øÀ¸·Î Á¤·Ä
+    qsort(last_numbers, number_count, sizeof(int), compare); //ì¢‹ì•„ìš” ìˆ«ìê°€ ë“¤ì–´ê°„ ë°°ì—´ì„ ë‚´ë¦¼ì°¨ìˆœìœ¼ë¡œ ì •ë ¬
 
-    char name[STRING_SIZE]; //Á¦¸ñ
-    char singer[STRING_SIZE]; //°¡¼ö
-    char song_writer[STRING_SIZE]; //ÀÛ°î°¡
-    char lylic_writer[STRING_SIZE]; //ÀÛ»ç°¡
-    char genre[STRING_SIZE]; //Àå¸£
-    char playtime[STRING_SIZE]; //Àç»ı½Ã°£
-    char album_name[STRING_SIZE]; //¾Ù¹ü¸í
-    char album_time[STRING_SIZE]; //¾Ù¹ü Ãâ½Ã ³¯Â¥
+    char name[STRING_SIZE]; //ì œëª©
+    char singer[STRING_SIZE]; //ê°€ìˆ˜
+    char song_writer[STRING_SIZE]; //ì‘ê³¡ê°€
+    char lylic_writer[STRING_SIZE]; //ì‘ì‚¬ê°€
+    char genre[STRING_SIZE]; //ì¥ë¥´
+    char playtime[STRING_SIZE]; //ì¬ìƒì‹œê°„
+    char album_name[STRING_SIZE]; //ì•¨ë²”ëª…
+    char album_time[STRING_SIZE]; //ì•¨ë²” ì¶œì‹œ ë‚ ì§œ
 
-    for (int i = 0; i < number_count; i++) //ÁÁ¾Æ¿ä ¼ıÀÚ°¡ µé¾î°£ ¹è¿­¸¸Å­ ¹İº¹
+    for (int i = 0; i < number_count; i++) //ì¢‹ì•„ìš” ìˆ«ìê°€ ë“¤ì–´ê°„ ë°°ì—´ë§Œí¼ ë°˜ë³µ
     {
         file = fopen("song_list.txt", "r");
         while (fgets(line, sizeof(line), file) != NULL)
         {
-            int last = getLastNumber(line); //ÁÁ¾Æ¿ä ¼ıÀÚ ÀÓ½Ã ÀúÀå
-            if (last == last_numbers[i]) //¸¸¾à ÁÁ¾Æ¿ä ¼ıÀÚ°¡ ÁÁ¾Æ¿ä ¹è¿­¿¡ µé¾î°£ ¼ıÀÚ¿Í ÀÏÄ¡ÇÏ¸é Ãâ·Â½ÃÀÛ
+            int last = getLastNumber(line); //ì¢‹ì•„ìš” ìˆ«ì ì„ì‹œ ì €ì¥
+            if (last == last_numbers[i]) //ë§Œì•½ ì¢‹ì•„ìš” ìˆ«ìê°€ ì¢‹ì•„ìš” ë°°ì—´ì— ë“¤ì–´ê°„ ìˆ«ìì™€ ì¼ì¹˜í•˜ë©´ ì¶œë ¥ì‹œì‘
             {
-                sscanf(line, "%[^\t]\t%[^\t]\t%[^\t]\t%[^\t]\t%[^\t]\t%[^\t]\t%[^\t]\t%[^\t\n]", name, singer, song_writer, lylic_writer, genre, playtime, album_name, album_time); //ÅÇÅ°¸¦ ±¸ºĞÀÚ·Î ÇÏ³ª¾¿ ºÒ·¯¿À±â
-                printf("%s / ", name); //Á¦¸ñ Ãâ·Â
+                sscanf(line, "%[^\t]\t%[^\t]\t%[^\t]\t%[^\t]\t%[^\t]\t%[^\t]\t%[^\t]\t%[^\t\n]", name, singer, song_writer, lylic_writer, genre, playtime, album_name, album_time); //íƒ­í‚¤ë¥¼ êµ¬ë¶„ìë¡œ í•˜ë‚˜ì”© ë¶ˆëŸ¬ì˜¤ê¸°
+                printf("%s / ", name); //ì œëª© ì¶œë ¥
                 int size = 0;
 
-                //°¡¼ö Ãâ·Â
+                //ê°€ìˆ˜ ì¶œë ¥
                 while (1)
                 {
-                    if (singer[size] == '|') //ÀÎ¹° ±¸ºĞÀÚ¸¦ ¸¸³µÀ» ¶§
+                    if (singer[size] == '|') //ì¸ë¬¼ êµ¬ë¶„ìë¥¼ ë§Œë‚¬ì„ ë•Œ
                     {
-                        while (1) //¶ç¾î¾²±â¸¦ ¸¸³¯ ¶§ ¶Ç´Â ³¡³¯ ¶§ ±îÁö °Ç³Ê¶Ù±â
+                        while (1) //ë„ì–´ì“°ê¸°ë¥¼ ë§Œë‚  ë•Œ ë˜ëŠ” ëë‚  ë•Œ ê¹Œì§€ ê±´ë„ˆë›°ê¸°
                         {
                             size++;
-                            if (singer[size] == NULL) //¹®ÀÚ¿­ÀÌ ³¡³µÀ» ¶§
+                            if (singer[size] == NULL) //ë¬¸ìì—´ì´ ëë‚¬ì„ ë•Œ
                             {
                                 break;
                             }
-                            else if (singer[size] == ' ') //¶ç¾î¾²±â¸¦ ¸¸³µÀ» ¶§
+                            else if (singer[size] == ' ') //ë„ì–´ì“°ê¸°ë¥¼ ë§Œë‚¬ì„ ë•Œ
                             {
-                                size = size + 1; //´ÙÀ½ ÀÎ¹°ÀÇ ÀÌ¸§À¸·Î ÀÌµ¿
+                                size = size + 1; //ë‹¤ìŒ ì¸ë¬¼ì˜ ì´ë¦„ìœ¼ë¡œ ì´ë™
                                 break;
                             }
                         }
                     }
-                    if (singer[size] == NULL) //¹®ÀÚ¿­ÀÌ ³¡³µÀ» ¶§
+                    if (singer[size] == NULL) //ë¬¸ìì—´ì´ ëë‚¬ì„ ë•Œ
                     {
                         printf(" / ");
                         break;
@@ -412,26 +411,26 @@ void like_song_print() //ÁÁ¾Æ¿ä ¸ñ·Ï Ãâ·Â
                 }
                 size = 0;
 
-                //ÀÛ°î°¡ Ãâ·Â
+                //ì‘ê³¡ê°€ ì¶œë ¥
                 while (1)
                 {
-                    if (song_writer[size] == '|') //ÀÎ¹° ±¸ºĞÀÚ¸¦ ¸¸³µÀ» ¶§
+                    if (song_writer[size] == '|') //ì¸ë¬¼ êµ¬ë¶„ìë¥¼ ë§Œë‚¬ì„ ë•Œ
                     {
-                        while (1) //¶ç¾î¾²±â¸¦ ¸¸³¯ ¶§ ¶Ç´Â ³¡³¯ ¶§ ±îÁö °Ç³Ê¶Ù±â
+                        while (1) //ë„ì–´ì“°ê¸°ë¥¼ ë§Œë‚  ë•Œ ë˜ëŠ” ëë‚  ë•Œ ê¹Œì§€ ê±´ë„ˆë›°ê¸°
                         {
                             size++;
-                            if (song_writer[size] == NULL) //¹®ÀÚ¿­ÀÌ ³¡³µÀ» ¶§
+                            if (song_writer[size] == NULL) //ë¬¸ìì—´ì´ ëë‚¬ì„ ë•Œ
                             {
                                 break;
                             }
-                            else if (song_writer[size] == ' ') //¶ç¾î¾²±â¸¦ ¸¸³µÀ» ¶§
+                            else if (song_writer[size] == ' ') //ë„ì–´ì“°ê¸°ë¥¼ ë§Œë‚¬ì„ ë•Œ
                             {
                                 size = size + 1;
                                 break;
                             }
                         }
                     }
-                    if (song_writer[size] == NULL) //¹®ÀÚ¿­ÀÌ ³¡³µÀ» ¶§
+                    if (song_writer[size] == NULL) //ë¬¸ìì—´ì´ ëë‚¬ì„ ë•Œ
                     {
                         printf(" / ");
                         break;
@@ -441,26 +440,26 @@ void like_song_print() //ÁÁ¾Æ¿ä ¸ñ·Ï Ãâ·Â
                 }
                 size = 0;
 
-                //ÀÛ»ç°¡ Ãâ·Â
+                //ì‘ì‚¬ê°€ ì¶œë ¥
                 while (1)
                 {
-                    if (lylic_writer[size] == '|') //ÀÎ¹° ±¸ºĞÀÚ¸¦ ¸¸³µÀ» ¶§
+                    if (lylic_writer[size] == '|') //ì¸ë¬¼ êµ¬ë¶„ìë¥¼ ë§Œë‚¬ì„ ë•Œ
                     {
-                        while (1) //¶ç¾î¾²±â¸¦ ¸¸³¯ ¶§ ¶Ç´Â ³¡³¯ ¶§ ±îÁö °Ç³Ê¶Ù±â
+                        while (1) //ë„ì–´ì“°ê¸°ë¥¼ ë§Œë‚  ë•Œ ë˜ëŠ” ëë‚  ë•Œ ê¹Œì§€ ê±´ë„ˆë›°ê¸°
                         {
                             size++;
-                            if (lylic_writer[size] == NULL) //¹®ÀÚ¿­ÀÌ ³¡³µÀ» ¶§
+                            if (lylic_writer[size] == NULL) //ë¬¸ìì—´ì´ ëë‚¬ì„ ë•Œ
                             {
                                 break;
                             }
-                            else if (lylic_writer[size] == ' ') //¶ç¾î¾²±â¸¦ ¸¸³µÀ» ¶§
+                            else if (lylic_writer[size] == ' ') //ë„ì–´ì“°ê¸°ë¥¼ ë§Œë‚¬ì„ ë•Œ
                             {
                                 size = size + 1;
                                 break;
                             }
                         }
                     }
-                    if (lylic_writer[size] == NULL) //¹®ÀÚ¿­ÀÌ ³¡³µÀ» ¶§
+                    if (lylic_writer[size] == NULL) //ë¬¸ìì—´ì´ ëë‚¬ì„ ë•Œ
                     {
                         printf(" / ");
                         break;
@@ -469,11 +468,11 @@ void like_song_print() //ÁÁ¾Æ¿ä ¸ñ·Ï Ãâ·Â
                     size++;
                 }
 
-                int k = strlen(name) + strlen(singer) + strlen(song_writer) + strlen(lylic_writer) + 4; //°ø¶õ ¿¹¿Ü Ã³¸®
+                int k = strlen(name) + strlen(singer) + strlen(song_writer) + strlen(lylic_writer) + 4; //ê³µë€ ì˜ˆì™¸ ì²˜ë¦¬
                 for (k; k < strlen(line); k++) {
                     if (line[k] == '\t')
                         printf(" / ");
-                    else if (k + 1 == strlen(line) && line[k] != '\n') //¸¶Áö¸· ÁÙ ¿¹¿Ü Ãâ·Â
+                    else if (k + 1 == strlen(line) && line[k] != '\n') //ë§ˆì§€ë§‰ ì¤„ ì˜ˆì™¸ ì¶œë ¥
                         printf("%c\n", line[k]);
                     else
                         printf("%c", line[k]);
