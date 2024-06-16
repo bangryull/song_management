@@ -147,45 +147,52 @@ void push_like()
     printf("\n좋아요를 누를 노래를 선택하세요.");
     printf("\n\n제목 / 가수 / 작곡가 / 작사가 / 장르 / 재생시간 / 앨범명 / 앨범 출시 날짜 / 좋아요\n\n");
     FILE* fp;
-    fp = fopen("song_list.txt", "r"); //텍스트 파일 불러오기
-    char name[STRING_SIZE]; //제목
-    char singer[STRING_SIZE]; //가수
-    char song_writer[STRING_SIZE]; //작곡가
-    char lylic_writer[STRING_SIZE]; //작사가
-    char genre[STRING_SIZE]; //장르
-    char playtime[STRING_SIZE]; //재생시간
-    char album_name[STRING_SIZE]; //앨범명
-    char album_time[STRING_SIZE]; //앨범 출시 날짜
+    fp = fopen("song_list.txt", "r"); // 텍스트 파일 불러오기
+    if (fp == NULL) {
+        printf("파일을 열 수 없습니다.\n");
+        return;
+    }
+
+    char name[STRING_SIZE]; // 제목
+    char singer[STRING_SIZE]; // 가수
+    char song_writer[STRING_SIZE]; // 작곡가
+    char lylic_writer[STRING_SIZE]; // 작사가
+    char genre[STRING_SIZE]; // 장르
+    char playtime[STRING_SIZE]; // 재생시간
+    char album_name[STRING_SIZE]; // 앨범명
+    char album_time[STRING_SIZE]; // 앨범 출시 날짜
 
     int num = 1;
+    int song_count = 0; // 노래 개수를 세기 위한 변수
 
-    char song[STRING_SIZE * 8]; //불러올 한 줄
-    while (fgets(song, sizeof(song), fp) != NULL) //한 줄 씩 불러오기
+    char song[STRING_SIZE * 8]; // 불러올 한 줄
+    while (fgets(song, sizeof(song), fp) != NULL) // 한 줄씩 불러오기
     {
-        sscanf(song, "%[^\t]\t%[^\t]\t%[^\t]\t%[^\t]\t%[^\t]\t%[^\t]\t%[^\t]\t%[^\t\n]", name, singer, song_writer, lylic_writer, genre, playtime, album_name, album_time); //탭키를 구분자로 하나씩 불러오기
-        printf("%d. %s / ",num, name); //노래 번호와 제목 출력
+        song_count++; // 노래 개수 증가
+        sscanf(song, "%[^\t]\t%[^\t]\t%[^\t]\t%[^\t]\t%[^\t]\t%[^\t]\t%[^\t]\t%[^\t\n]", name, singer, song_writer, lylic_writer, genre, playtime, album_name, album_time); // 탭키를 구분자로 하나씩 불러오기
+        printf("%d. %s / ", num, name); // 노래 번호와 제목 출력
         int size = 0;
 
-        //가수 출력
+        // 가수 출력
         while (1)
         {
-            if (singer[size] == '|') //인물 구분자를 만났을 때
+            if (singer[size] == '|') // 인물 구분자를 만났을 때
             {
-                while (1) //띄어쓰기를 만날 때 또는 끝날 때 까지 건너뛰기
+                while (1) // 띄어쓰기를 만날 때 또는 끝날 때까지 건너뛰기
                 {
                     size++;
-                    if (singer[size] == NULL) //문자열이 끝났을 때
+                    if (singer[size] == '\0') // 문자열이 끝났을 때
                     {
                         break;
                     }
-                    else if (singer[size] == ' ') //띄어쓰기를 만났을 때
+                    else if (singer[size] == ' ') // 띄어쓰기를 만났을 때
                     {
-                        size = size + 1; //다음 인물의 이름으로 이동
+                        size = size + 1; // 다음 인물의 이름으로 이동
                         break;
                     }
                 }
             }
-            if (singer[size] == NULL) //문자열이 끝났을 때
+            if (singer[size] == '\0') // 문자열이 끝났을 때
             {
                 printf(" / ");
                 break;
@@ -195,26 +202,26 @@ void push_like()
         }
         size = 0;
 
-        //작곡가 출력
+        // 작곡가 출력
         while (1)
         {
-            if (song_writer[size] == '|') //인물 구분자를 만났을 때
+            if (song_writer[size] == '|') // 인물 구분자를 만났을 때
             {
-                while (1) //띄어쓰기를 만날 때 또는 끝날 때 까지 건너뛰기
+                while (1) // 띄어쓰기를 만날 때 또는 끝날 때까지 건너뛰기
                 {
                     size++;
-                    if (song_writer[size] == NULL) //문자열이 끝났을 때
+                    if (song_writer[size] == '\0') // 문자열이 끝났을 때
                     {
                         break;
                     }
-                    else if (song_writer[size] == ' ') //띄어쓰기를 만났을 때
+                    else if (song_writer[size] == ' ') // 띄어쓰기를 만났을 때
                     {
                         size = size + 1;
                         break;
                     }
                 }
             }
-            if (song_writer[size] == NULL) //문자열이 끝났을 때
+            if (song_writer[size] == '\0') // 문자열이 끝났을 때
             {
                 printf(" / ");
                 break;
@@ -224,26 +231,26 @@ void push_like()
         }
         size = 0;
 
-        //작사가 출력
+        // 작사가 출력
         while (1)
         {
-            if (lylic_writer[size] == '|') //인물 구분자를 만났을 때
+            if (lylic_writer[size] == '|') // 인물 구분자를 만났을 때
             {
-                while (1) //띄어쓰기를 만날 때 또는 끝날 때 까지 건너뛰기
+                while (1) // 띄어쓰기를 만날 때 또는 끝날 때까지 건너뛰기
                 {
                     size++;
-                    if (lylic_writer[size] == NULL) //문자열이 끝났을 때
+                    if (lylic_writer[size] == '\0') // 문자열이 끝났을 때
                     {
                         break;
                     }
-                    else if (lylic_writer[size] == ' ') //띄어쓰기를 만났을 때
+                    else if (lylic_writer[size] == ' ') // 띄어쓰기를 만났을 때
                     {
                         size = size + 1;
                         break;
                     }
                 }
             }
-            if (lylic_writer[size] == NULL) //문자열이 끝났을 때
+            if (lylic_writer[size] == '\0') // 문자열이 끝났을 때
             {
                 printf(" / ");
                 break;
@@ -252,7 +259,7 @@ void push_like()
             size++;
         }
 
-        int k = strlen(name) + strlen(singer) + strlen(song_writer) + strlen(lylic_writer) + 4; //공란 예외 처리
+        int k = strlen(name) + strlen(singer) + strlen(song_writer) + strlen(lylic_writer) + 4; // 공란 예외 처리
         for (k; k < strlen(song); k++) {
             if (song[k] == '\t')
                 printf(" / ");
@@ -261,32 +268,37 @@ void push_like()
         }
         num++;
     }
-    fclose(fp); //노래 출력 끝
+    fclose(fp); // 노래 출력 끝
 
     printf("\n\n번호를 입력하세요 :");
     char input[STRING_SIZE];
-    int number; //메뉴 선택이 올바른 입력일 때 숫자 넣을 변수
+    int number; // 메뉴 선택이 올바른 입력일 때 숫자 넣을 변수
 
     while (fgets(input, sizeof(input), stdin)) {
         // 개행문자 제거
         input[strcspn(input, "\n")] = '\0';
 
-        if (is_valid_number(input)) { //모든 입력이 숫자로 이루어져 있는지 확인
+        if (is_valid_number(input)) { // 모든 입력이 숫자로 이루어져 있는지 확인
             number = atoi(input);
-            break;
+            if (number > 0 && number <= song_count) {
+                break;
+            }
+            else {
+                printf("잘못된 노래의 번호입니다. \n");
+                return;
+            }
         }
-        else { //숫자로만 이루어져 있지 않으면
+        else { // 숫자로만 이루어져 있지 않으면
             printf("잘못된 노래의 번호입니다.\n");
-            return 0;
+            return;
         }
     }
 
     const char* filename = "song_list.txt";
     like_song(filename, number);
     printf("%s의 좋아요가 1 증가 했습니다.\n", name);
-
-    return 0;
 }
+
 
 // 각 줄의 마지막 숫자를 추출하는 함수
 int getLastNumber(char* line) {
