@@ -1203,15 +1203,51 @@ void get_dlt_song(char* dlt_song) { // 삭제 문자열 입력 및 생성 함수
     char dlt_singer[STRING_SIZE];   // 삭제할 노래 가수
     int line_number_check[MAX_SIZE] = { 0 };   // 노래 중복시 삭제할 노래 선택 때 사용할 배열
     int line_num = 0;   // 중복 노래 개수 담을 변수
+    int dlt_back = 0;   // 0 입력 시 뒤로가기
 
     printf("노래를 삭제합니다.\n");
-    printf("삭제할 노래의 제목을 입력하세요: ");
+    printf("삭제할 노래의 제목을 입력하세요(0 입력 시 뒤로가기): ");
     fgets(dlt_songname, STRING_SIZE, stdin);
     dlt_songname[strcspn(dlt_songname, "\n")] = '\0'; // 개행 문자 제거
+    if (strcmp(dlt_songname, "0") == 0) {
+        printf("'0'을 입력 하셨습니다. 정말 뒤로 가시겠습니까?\n");
+        printf("\n1. 뒤로가기");
+        printf("\n2. '0' 입력하기\n");
+        printf("\n메뉴선택 : ");
+        scanf("%d", &dlt_back);
+        while (getchar() != '\n'); //입력 버터 비우기
+        while (!(dlt_back == 1 || dlt_back == 2)) {
+            printf("잘못 입력 하셨습니다. 다시 선택해주세요.\n");
+            printf("\n1. 뒤로가기");
+            printf("\n2. '0' 입력하기\n");
+            printf("\n메뉴선택 : ");
+            scanf("%d", &dlt_back);
+            while (getchar() != '\n'); //입력 버터 비우기
+        }
+        if (dlt_back == 1) return;
+    }
 
-    printf("삭제할 노래의 가수를 입력하세요: ");
+    printf("삭제할 노래의 가수를 입력하세요(0 입력 시 뒤로가기): ");
     fgets(dlt_singer, STRING_SIZE, stdin);
     dlt_singer[strcspn(dlt_singer, "\n")] = '\0'; // 개행 문자 제거
+    if (strcmp(dlt_singer, "0") == 0) {
+        dlt_back = 0;
+        printf("'0'을 입력 하셨습니다. 정말 뒤로 가시겠습니까?\n");
+        printf("\n1. 뒤로가기");
+        printf("\n2. '0' 입력하기\n");
+        printf("\n메뉴선택 : ");
+        scanf("%d", &dlt_back);
+        while (getchar() != '\n'); //입력 버터 비우기
+        while (!(dlt_back == 1 || dlt_back == 2)) {
+            printf("잘못 입력 하셨습니다. 다시 선택해주세요.\n");
+            printf("\n1. 뒤로가기");
+            printf("\n2. '0' 입력하기\n");
+            printf("\n메뉴선택 : ");
+            scanf("%d", &dlt_back);
+            while (getchar() != '\n'); //입력 버터 비우기
+        }
+        if (dlt_back == 1) return;
+    }
 
     FILE* file = fopen("song_list.txt", "r");
     if (file == NULL) {
